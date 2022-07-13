@@ -1,0 +1,1 @@
+pdflatex -output-directory './build' vwa.tex 
