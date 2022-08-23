@@ -3,9 +3,28 @@
 \usepackage{graphicx}
 \usepackage[T1]{fontenc}
 \usepackage{helvet}
+\usepackage[german]{babel}
 \linespread{1.25}
 
 \begin{document}
 \fontfamily{phv}
+
 \input{chapters/title-page.tex}
+\tableofcontents
+
+\chapter{Einleitung}
+\input{chapters/introduction.tex}
+
+\chapter{Aufbau des Bitcoin-Netzwerkes}
+\input{chapters/structure.tex}
+
+\chapter{Adressen}
+\input{chapters/addresses.tex}
+
+\chapter{Transaktionen}
+\input{chapters/transactions.tex}
+
+\chapter{Kritik an Bitcoin}
+\input{chapters/critique.tex}
+
 \end{document}  
