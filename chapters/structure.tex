@@ -1,8 +1,8 @@
 \section{Peer-to-Peer-Netzwerk}
 Im Bitcoin-Netzwerk gibt es keine zentrale Macht. Alle verbundenen Computer arbeiten miteinander als Peers. Peer-to-Peer
 bzw. P2P heißt, dass alle teilnehmenden Computer die gleichen Rechte und Hindernisse haben. Die einzelnen verbundenen Computer
-nennt man Nodes. Jede Node kommuniziert rund um die Uhr mit ihren benachbarten Nodes. Nodes können Informationen abfragen, aber 
-auch weiterleiten. Das Bitcoin-Netzwerk ist demnach die Gesamtheit aller Nodes.
+nennt man Nodes. Jede Node kommuniziert rund um die Uhr mit ihren benachbarten Nodes. Nodes können Informationen abfragen, 
+weiterleiten und verifizieren. Das Bitcoin-Netzwerk ist demnach die Gesamtheit aller Nodes.
 
 Was passiert aber, wenn eine Node für bösartige Zwecke falsche Informationen an andere Nodes verschickt? Dafür hat man ein
 Vertrauens-System im Bitcoin-Netzwerk implementiert. Bevor eine Node empfangene Informationen abspeichert, prüft sie diese
@@ -17,9 +17,20 @@ Zum einen gibt es Leute, die mit ihrer Node nur mithören wollen, zum anderen ab
 verdienen wollen. Aus diesem Grunde gibt es verschiedene Implementierungen und Rollen von Nodes.
 
 \subsection{Full Node}
+Eine Full Node benötigt von allen Nodetypen am meisten Speicherplatz, ist dafür aber die mächtigste und fasst alle Funktionen in 
+einer Node zusammen. Der distinkte Unterschied von der Full Node ist, dass diese die komplette Blockchain herunterlädt und
+verifiziert. Der benötigte Speicherplatz der Blockchain liegt bei 423GB (Stand: 25/8/2022) und steigt pro Monat um etwa 3GB an.
 
 \subsection{Mining Node}
+Damit die Blockchain erweitert wird und alle Transaktionen verfiziert werden könnnen, müssen sogenannte Miner alle 10 Minuten
+eine Lösung zu einem mathematischen Problem finden, indem sie mit der Hashfunktion SHA256 einen bestimmten Wert suchen. Das muss
+vor allem schnell und präzise geschehen, damit die Chance, die Lösung als Erstes zu finden, maximiert wird. Mining Nodes 
+profitieren vor allem von modernen GPUs, welche hunderte Millionen Hashes pro Sekunde berechnen.
+
 \subsection{SPV Client}
+Die wahrscheinlich beste Node für den Otto Normalverbraucher ist der SPV Client. Dieser installiert lediglich eine Wallet und
+stellt eine Verbindung zum Bitcoin-Netzwerk her. Er ist einzig und allein dafür ausgestattet, Transaktionen auf das eigene Konto
+zu empfangen und Gled zu versenden. 
 
 \section{Die Blockchain}
 \subsection{Struktur eines Blocks}
