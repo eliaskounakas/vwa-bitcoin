@@ -1,5 +1,23 @@
 \section{Peer-to-Peer-Netzwerk}
+Im Bitcoin-Netzwerk gibt es keine zentrale Macht. Alle verbundenen Computer arbeiten miteinander als Peers. Peer-to-Peer
+bzw. P2P heißt, dass alle teilnehmenden Computer die gleichen Rechte und Hindernisse haben. Die einzelnen verbundenen Computer
+nennt man Nodes. Jede Node kommuniziert rund um die Uhr mit ihren benachbarten Nodes. Nodes können Informationen abfragen, aber 
+auch weiterleiten. Das Bitcoin-Netzwerk ist demnach die Gesamtheit aller Nodes.
+
+Was passiert aber, wenn eine Node für bösartige Zwecke falsche Informationen an andere Nodes verschickt? Dafür hat man ein
+Vertrauens-System im Bitcoin-Netzwerk implementiert. Bevor eine Node empfangene Informationen abspeichert, prüft sie diese
+auf Korrektheit in Bezug auf den derzeitigen Standard. Dieser Standard wird im BIP (Bitcoin Improvement Proposal) festgelegt,
+welcher periodisch immer neue Richtlinien festlegt. Natürlich hat das BIP keine Macht über die Nodes, diese können nämlich
+selber entscheiden, ob sie nun nach den neuen Richtlinien arbeiten wollen oder nicht. Jedoch übernehmen die meisten Nodes mit
+einem kurzen Update den neuen Standard, da dieser lediglich für das Interesse der Teilnehmer entwickelt wird.
+
+Bitcoin Nodes sind kaum leistungshungrig und benötigen wenig Energie. Deswegen ist es für so gut wie jede Person möglich,
+selber zu Hause eine Bitcoin Node zum Laufen zu bringen. Die Zwecke für diese Node könnnen aber von Person zu Person variieren.
+Zum einen gibt es Leute, die mit ihrer Node nur mithören wollen, zum anderen aber auch diejenigen, die durch Mining Geld
+verdienen wollen. Aus diesem Grunde gibt es verschiedene Implementierungen und Rollen von Nodes.
+
 \subsection{Full Node}
+
 \subsection{Mining Node}
 \subsection{SPV Client}
 
