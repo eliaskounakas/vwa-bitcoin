@@ -32,6 +32,41 @@ Die wahrscheinlich beste Node für den Otto Normalverbraucher ist der SPV Client
 stellt eine Verbindung zum Bitcoin-Netzwerk her. Er ist einzig und allein dafür ausgestattet, Transaktionen auf das eigene Konto
 zu empfangen und Gled zu versenden. 
 
+
+
 \section{Die Blockchain}
+Die Blockchain ist eine Datenstruktur, welche Transaktionen in miteinander verbundenen Blöcken speichert. Visualisieren kann man
+diese wie einen Turm von Blöcken. Der unterste Block dient als Fundament und die Anzahl der Blöcke bestimmt die Höhe. Ein neuer
+Block wird hinzugefügt, wenn ein Miner eine neue Lösung mit der SHA256 Hashfunktion gefunden hat. Der Miner kann dann aussuchen,
+welche Transaktionen er in seinem Block inkludieren möchte. Bei einer Transaktion kann man eine beliebig hohe Spende an den Miner
+abgeben. Transaktionen mit einer hohen Spende haben eine größere Wahrscheinlichkeit, im nächsten Block inkludiert zu werden.
+
+Nun kann es jedoch passieren, dass zwei Miner gleichzeitig eine Lösung finden und im Bitcoin-Netzwerk zwei verschiedene Versionen
+der Blockchain im Umlauf sind. Diese Diskrepanz wird aufgelöst, sobal einer der Ketten einen nächsten Block bekommt. Der Grund
+dafür ist, dass das Bitcoin-Netzwerk nach einem Konzept namens "Proof of work" arbeitet. Wenn ein neuer Block hinzugefügt wird,
+kann man sich sicher sein, dass ein Miner Prozesskraft und Energie dafür aufopfern musste. Die Kette, welche im Endeffekt mehr
+Blöcke besitzt, wird als gültig anerkannt.
+
+Einer der bekanntesten Wege, um das Bitcoin-Netzwerk anzugreifen, ist der "51\% Attack". Wenn man mit bösartigen Absichten
+in Besitz von mehr als 50\% der Mining-Kraft kommt, kann man zwei schwerwiegende Dinge tun. Zum einen kann das Bitcoin-Netzwerk
+komplett lahmgelegt werden, indem keine neuen Transaktionen in den Blöcken inkludiert werden. Zum anderen können Zahlungen
+rückgängig gemacht werden, indem man in der einen Kette die Zahlung akzeptiert hat, dann jedoch eine andere Kette ohne diese 
+Zahlung weiterführt und verlängert. Ein Angriff dieser Art wird jedoch immer unwahrsheinlicher, da Bitcoin stetig wächst und
+es eine riesige Organisation benötigen würde, um an so viel Hardware und Energie zu kommen.
+
 \subsection{Struktur eines Blocks}
+Ein Block ist ein Behälter für eine Datenstruktur, welche für die Einschließung von Transaktionen in der Blockchain sorgt. Der
+Block besteht aus einem Header, welcher für die Identifizierung des Blocks notwendig ist, gefolgt von einer Liste aller 
+Transaktionen. Im Block Header befinden sich Informationen wie die derzeitige Schwierigkeit zur Lösung des Problems der Miner,
+einen Zeitstempel, welcher die Entstehung des Blocks angibt und einer Zusatzzahl, welche nützlich für Miner ist.
+
+Zur Identifizierung von Blöcken gibt es zwei Wege: Die Berechnung des Block Header Hashes und die Höhe des Blocks. Einen Block 
+durch seine Höhe zu identifizieren scheint simpler, jedoch gibt es hierbei ein Problem. Bei dem vorher angesprochenen Fall,
+dass zwei Miner gleichzeitig einen Block finden, scheitert die Identifizierung eines Blocks durch dessen Höhe. Um den Block
+Header Hash zu berechnen, wird der Block Header (Schwierigkeit, Zeitstempel, Zusatzzahl) zwei mal mit dem SHA256 Algorithmus 
+gehashed. Hierbei kommt ein 32-byte Hash heraus, welcher mit vielen Nullstellen beginnt. Jeder Block hat einen distinkten Block
+Header Hash, wodurch es keine doppelte Blöcke geben kann. Der erste Block (Genesis-Block) der Blockchain hat einen Hashwert von
+000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f.
+
+
 \subsection{Genesis-Block}
