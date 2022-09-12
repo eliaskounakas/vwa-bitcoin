@@ -12,13 +12,3 @@ Bankkonto vorstellen. Bitcoin Addressen werden meist aus dem Public Key generier
 kann zwar von anderen gesehen werden, da es keine Sicherheitsrisiken kreiert, wird jedoch trotzdem gehashed. Grund dafür ist,
 dass Speicherplatz in Bitcoin eine sehr große Rolle spielt. Public Keys haben nämlich mehr Bits als das Ergebnis einer
 Hashfunktion.
-
-\section{Elliptic Curve Digital Signature Algorithm}
-Elliptische Kurven sind die Menge aller Punkte in den reellen Zahlen, die die Gleichung $ 4y^2 = x^3 + ax + b $ erfüllen, wobei
-$ 4a^3 + 27b^2 \neq 0 $, um Singularitäten auszuschließen. Diese Form der elliptischen Kurve nennt man die Weierstraß-Normalform.
-Außerdem wird ein Punkt im Unendlichen benötigt, welcher Teil der Kurve ist. Für den Zweck dieser Arbeit wird der Punkt im 
-Unendlichen als $\infty$ bezeichnet. Um den Punkt der Unendlichkeit explizit zu definieren, lautet die vollständige Definition (vgl andrea
-corbellini): \[ \{ (x,y) \in \mathbb{R}^2 | y^2 = x^3 + ax + b, 4a^3 + 27b^2 \neq 0 \} \cup \{ \infty \} \]
-
-\subsection{Gruppenoperationen}
-

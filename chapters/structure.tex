@@ -7,7 +7,7 @@ weiterleiten und verifizieren. Das Bitcoin-Netzwerk ist demnach die Gesamtheit a
 Was passiert aber, wenn eine Node für bösartige Zwecke falsche Informationen an andere Nodes verschickt? Dafür hat man ein
 Vertrauens-System im Bitcoin-Netzwerk implementiert. Bevor eine Node empfangene Informationen abspeichert, prüft sie diese
 auf Korrektheit in Bezug auf den derzeitigen Standard. Dieser Standard wird im BIP (Bitcoin Improvement Proposal) festgelegt,
-welcher periodisch immer neue Richtlinien festlegt. Natürlich hat das BIP keine Macht über die Nodes, diese können nämlich
+welcher periodisch immer neue Richtlinien festlegt. () Natürlich hat das BIP keine Macht über die Nodes, diese können nämlich
 selber entscheiden, ob sie nun nach den neuen Richtlinien arbeiten wollen oder nicht. Jedoch übernehmen die meisten Nodes mit
 einem kurzen Update den neuen Standard, da dieser lediglich für das Interesse der Teilnehmer entwickelt wird.
 
@@ -28,10 +28,9 @@ vor allem schnell und präzise geschehen, damit die Chance, die Lösung als Erst
 profitieren vor allem von modernen GPUs, welche hunderte Millionen Hashes pro Sekunde berechnen.
 
 \subsection{SPV Client}
-Die wahrscheinlich beste Node für den Otto Normalverbraucher ist der SPV Client. Dieser installiert lediglich eine Wallet und
-stellt eine Verbindung zum Bitcoin-Netzwerk her. Er ist einzig und allein dafür ausgestattet, Transaktionen auf das eigene Konto
-zu empfangen und Gled zu versenden. 
-
+Die wahrscheinlich beste Node fÍür den Otto Normalverbraucher ist der SPV Client (Simplified Payment Verification Client). Dieser
+installiert lediglich eine Wallet, eine Kopie der Block Header und stellt eine Verbindung zum Bitcoin-Netzwerk her. Er ist einzig
+und allein dafür ausgestattet, Transaktionen auf das eigene Konto zu empfangen und Geld zu versenden. 
 
 
 \section{Die Blockchain}
@@ -51,8 +50,8 @@ Einer der bekanntesten Wege, um das Bitcoin-Netzwerk anzugreifen, ist der "51\% 
 in Besitz von mehr als 50\% der Mining-Kraft kommt, kann man zwei schwerwiegende Dinge tun. Zum einen kann das Bitcoin-Netzwerk
 komplett lahmgelegt werden, indem keine neuen Transaktionen in den Blöcken inkludiert werden. Zum anderen können Zahlungen
 rückgängig gemacht werden, indem man in der einen Kette die Zahlung akzeptiert hat, dann jedoch eine andere Kette ohne diese 
-Zahlung weiterführt und verlängert. Ein Angriff dieser Art wird jedoch immer unwahrsheinlicher, da Bitcoin stetig wächst und
-es eine riesige Organisation benötigen würde, um an so viel Hardware und Energie zu kommen.
+Zahlung weiterführt und verlängert. Ein Angriff dieser Art wird jedoch immer unwahrsheinlicher, da die Warscheinlichkeit für
+einen solchen Angriff exponentiell abfällt. (vgl Nakamoto, 8)
 
 \subsection{Struktur eines Blocks}
 Ein Block ist ein Behälter für eine Datenstruktur, welche für die Einschließung von Transaktionen in der Blockchain sorgt. Der
