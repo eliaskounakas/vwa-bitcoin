@@ -1,14 +1,53 @@
-\section{Asymmetrische Kryptographie}
-Die Kryptographie ist ein Zweig der Mathematik, welcher vor allem in der Cyber-Security Branche verwendet wird. Mit Kryptographie
-kann man beispielsweise beweise, dass man ein Geheimniss kennt, ohne das Geheimniss zu verraten. Im Falle von Bitcoin wird es 
-genutzt, um den Zugriff auf eine Bitcoin-Addresse zu beweisen. Erreicht wird dies mit dem Public-Key-Verfahren/Asymmetrische
-Verschlüsselung. Hierbei wird ein Schlüsselpaar generiert, welches aus dem Public Key und dem Private Key besteht. Der Public Key
-darf von anderen gesehen werden, der Private Key jedoch nicht. Generiert werden diese Schlüssel mit einem Algorithmus namens
-ECDSA (Elliptic Curve Digital Signature Algorithm).
+\section{Bitcoin-Adressen generieren}
+In Bitcoin werden Adressen verwendet, um Transaktionen zu empfangen und zu senden. Eine Bitcoin-Adresse ist eine Zeichenfolge, 
+die aus einer Reihe von Zahlen und Buchstaben besteht und einem öffentlichen Schlüssel entspricht.
 
-Transaktionen werden mit einer digitalen Signatur abgeschlossen, für welche der Private Key benötigt wird. Das heißt, dass jeder
-mit Zugriff auf den Private Key Transaktionen abschließen kann. Den Private Key kann man sich also wie ein Passwort für ein 
-Bankkonto vorstellen. Bitcoin Addressen werden meist aus dem Public Key generiert, indem dieser gehashed wird. Der Public Key
-kann zwar von anderen gesehen werden, da es keine Sicherheitsrisiken kreiert, wird jedoch trotzdem gehashed. Grund dafür ist,
-dass Speicherplatz in Bitcoin eine sehr große Rolle spielt. Public Keys haben nämlich mehr Bits als das Ergebnis einer
-Hashfunktion.
+Um eine Bitcoin-Adresse zu generieren, wird der öffentliche Schlüssel mithilfe einer kryptographischen Hashfunktion verarbeitet.
+Die Hashfunktion nimmt den öffentlichen Schlüssel als Eingabe und gibt einen Hash als Ausgabe. Der öffentliche Schlüssel selbst
+wird nicht als Adresse genutzt, weil der Hash weniger Speicherplatz benötigt. Der Hash wird dann mithilfe einer weiteren 
+Mathematikfunktion, der Base58Check-Codierung, in eine lesbare Adresse umgewandelt.
+
+\section{Base58Check-Codierung}
+Um große Zahlen mit wenigen Zeichen darzustellen, nutzen Computersysteme häufig alphanumerische Zahlensysteme mit einer Basis,
+die größer als 10 ist. Das Dezimalsystem nutzt die 10 Ziffern 0-9, während das Hexadezimalsystem zusätzlich die Buchstaben A-F
+nutzt, wodurch es 16 Ziffern hat. Deshalb sind Zahlen, welche hexadezimal dargestellt werden, kürzer. Base64 ist ein weiteres
+Zahlensystem, das noch viel kompakter ist. Es nutzt die 26 Buchstaben des Alphabets doppelt, nämlich in Klein- und Großschreibung.
+Zusätzlich nutzt Base64 die 10 Ziffern 0-9 und die Symbole + sowie /.
+
+Base58 hingegen ist eine Ableitung von Base64, welche ähnlich aussehende Symbole vermeidet, da sie in manchen Schriftarten
+identisch aussehen können. Diese Symbole sind die Zahl null, der Buchstabe O (großes o), l (kleines L), I (großes i), das 
+Zeichen + und /. Das vollständige Alphabet von Base58 ist: \[123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz\]
+
+Base58Check wiederum ist ein Codierungsformat von Base58, welches oft in Bitcoin genutzt wird und einen eingebauten
+Fehlerüberprüfungs-Code besitzt. Die Prüfsumme wird vom Hash der codierten Daten abgeleitet und kann deswegen genutzt werden, 
+um Tippfehler und andere Fehler zu erkennen. Wenn die Prüfsumme also nicht mit den codierten Daten übereinstimmt, gilt die
+eingegebene Bitcoin-Adresse als ungültig. Dies verhindert den Versand an falsche Bitcoin-Adressen und dadurch den Verlust
+von Geld. (Antonopoulos, 67)
+
+Die meisten Daten in Bitcoin werden Base58Check-codiert, was es einfacher macht, mit den Daten zu arbeiten. Zudem wird ein Präfix
+bei jeder Base58Check-Codierung genutzt, welche den Datentyp angibt, um welchen es sich handelt. Das ermöglicht dem Nutzer, schnell
+zu erkennen, welche Art von Daten dargestellt werden. Beispielsweise haben Bitcoin-Adressen in Base58Check den Präfix 0x00, welcher
+umgewandelt auf Base58 1 ergibt. Private Schlüssel wiederum haben den Präfix 0x80 in Base58Check bzw. 5 in Base58.
+
+\section{Private Schlüssel}
+Im Bitcoin-Netzwerk ist der private Schlüssel eine geheime Zahl, die genutzt wird, um Bitcoin-Ausgaben ausgehend von einer 
+bestimmten Bitcoin-Adresse zu authorisieren. Der private Schlüssel ist eine kritische Komponente der kryptographischen Sicherheit,
+auf welche das Bitcoin-Netzwertk aufbaut. Genutzt wird der private Schlüssel, um Authentizität bei Transaktionen zu beweisen und
+versichert dabei, dass die Transaktionen nicht verändert oder gefälscht sind.
+
+Meist sind private Schlüssel in einer sogenannten Wallet, eine Applikation, welche dem Nutzer ermöglicht, Transaktionen zu tätigen,
+gespeichert. Jede Wallet hat einen einzigartigen privaten Schlüssel, welche für Unterschriften bei Transaktionen genutzt wird und
+den Besitz der jeweiligen Bitcoins beweist. Es ist essentiell, dass der private Schlüssel geschützt ist und mit niemanden geteilt
+wird, da jeder mit Zugriff auf den privaten Schlüssel Bitcoins ausgeben kann.
+
+Private Schlüssel werden als Abfolge von Zahlen und Buchstaben dargestellt. Genauer gesagt werden private Schlüssel durch ein
+bestimmtes Format wie das Base64 Zahlensystem codiert. Folgende Hexadezimalzahl zeigt, wie ein privater Schlüssel im 
+Normalfall aussieht: 8a708d03d461a5c5839b53da4c40912ca094cc0edee8574a62d6895d033db7ea. Diese Zahl entspricht einem Dezimalwert 
+von ungefähr \( 6.2 * 10^{70} \). Generiert werden private Schlüssel mit verschiedenen Methoden wie beispielsweise ein 
+Zufallszahlengenerator. Gespeichert werden private Schlüssel im Normalfall auf einem Computer oder Smartphone in einer sicheren 
+Datei.
+
+\subsection{Private Schlüssel generieren}
+Prinzipiell sind private Schlüssel eine zufällige Zahl zwischen 1 und \( 2^{256} \) bzw. \( 1,15 * 10^{77} \). Um diese enorme Zahl
+zu relativisieren: die geschätzte Anzahl der Atome im sichtbaren Universum beträgt \( 10^{80} \). (Antonopoulos, 59) Die Chance,
+zwei mal denselben privaten Schlüssel zu generieren ist also extrem gering.

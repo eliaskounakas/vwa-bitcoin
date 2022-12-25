@@ -7,11 +7,12 @@ weiterleiten und verifizieren. Das Bitcoin-Netzwerk ist demnach die Gesamtheit a
 Was passiert aber, wenn eine Node für bösartige Zwecke falsche Informationen an andere Nodes verschickt? Dafür hat man ein
 Vertrauens-System im Bitcoin-Netzwerk implementiert. Bevor eine Node empfangene Informationen abspeichert, prüft sie diese
 auf Korrektheit in Bezug auf den derzeitigen Standard. Dieser Standard wird im BIP (Bitcoin Improvement Proposal) festgelegt,
-welcher periodisch immer neue Richtlinien festlegt. () Natürlich hat das BIP keine Macht über die Nodes, diese können nämlich
+welcher periodisch immer neue Richtlinien festlegt. (Dashjr, 2011) Natürlich hat das BIP keine Macht über die Nodes, diese können nämlich
 selber entscheiden, ob sie nun nach den neuen Richtlinien arbeiten wollen oder nicht. Jedoch übernehmen die meisten Nodes mit
 einem kurzen Update den neuen Standard, da dieser lediglich für das Interesse der Teilnehmer entwickelt wird.
 
-Bitcoin Nodes sind kaum leistungshungrig und benötigen wenig Energie. Deswegen ist es für so gut wie jede Person möglich,
+Bitcoin Nodes sind nicht leistungshungrig und benötigen wenig Energie, solange sie nicht für Mining genutzt werden. Deswegen ist
+es für so gut wie jede Person möglich,
 selber zu Hause eine Bitcoin Node zum Laufen zu bringen. Die Zwecke für diese Node könnnen aber von Person zu Person variieren.
 Zum einen gibt es Leute, die mit ihrer Node nur mithören wollen, zum anderen aber auch diejenigen, die durch Mining Geld
 verdienen wollen. Aus diesem Grunde gibt es verschiedene Implementierungen und Rollen von Nodes.
@@ -19,18 +20,16 @@ verdienen wollen. Aus diesem Grunde gibt es verschiedene Implementierungen und R
 \subsection{Full Node}
 Eine Full Node benötigt von allen Nodetypen am meisten Speicherplatz, ist dafür aber die mächtigste und fasst alle Funktionen in 
 einer Node zusammen. Der distinkte Unterschied von der Full Node ist, dass diese die komplette Blockchain herunterlädt und
-verifiziert. Der benötigte Speicherplatz der Blockchain liegt bei 423GB (Stand: 25/8/2022) und steigt pro Monat um etwa 3GB an.
+verifiziert. Der benötigte Speicherplatz der Blockchain liegt bei 423GB (Stand: 25/8/2022).
 
-\subsection{Mining Node}
-Damit die Blockchain erweitert wird und alle Transaktionen verfiziert werden könnnen, müssen sogenannte Miner alle 10 Minuten
+Damit die Blockchain erweitert wird und alle Transaktionen verfiziert werden könnnen, müssen sogenannte Mining Nodes alle 10 Minuten
 eine Lösung zu einem mathematischen Problem finden, indem sie mit der Hashfunktion SHA256 einen bestimmten Wert suchen. Das muss
 vor allem schnell und präzise geschehen, damit die Chance, die Lösung als Erstes zu finden, maximiert wird. Mining Nodes 
 profitieren vor allem von modernen GPUs, welche hunderte Millionen Hashes pro Sekunde berechnen.
 
-\subsection{SPV Client}
 Die wahrscheinlich beste Node fÍür den Otto Normalverbraucher ist der SPV Client (Simplified Payment Verification Client). Dieser
 installiert lediglich eine Wallet, eine Kopie der Block Header und stellt eine Verbindung zum Bitcoin-Netzwerk her. Er ist einzig
-und allein dafür ausgestattet, Transaktionen auf das eigene Konto zu empfangen und Geld zu versenden. 
+und allein dafür ausgestattet, Transaktionen auf das eigene Konto zu empfangen und Geld zu versenden. (Antonopoulos, 2017, S. 172f)
 
 
 \section{Die Blockchain}
@@ -51,7 +50,7 @@ in Besitz von mehr als 50\% der Mining-Kraft kommt, kann man zwei schwerwiegende
 komplett lahmgelegt werden, indem keine neuen Transaktionen in den Blöcken inkludiert werden. Zum anderen können Zahlungen
 rückgängig gemacht werden, indem man in der einen Kette die Zahlung akzeptiert hat, dann jedoch eine andere Kette ohne diese 
 Zahlung weiterführt und verlängert. Ein Angriff dieser Art wird jedoch immer unwahrsheinlicher, da die Warscheinlichkeit für
-einen solchen Angriff exponentiell abfällt. (vgl Nakamoto, 8)
+einen solchen Angriff exponentiell abfällt. (Nakamoto, 2008, 8)
 
 \subsection{Struktur eines Blocks}
 Ein Block ist ein Behälter für eine Datenstruktur, welche für die Einschließung von Transaktionen in der Blockchain sorgt. Der
@@ -65,7 +64,7 @@ dass zwei Miner gleichzeitig einen Block finden, scheitert die Identifizierung e
 Header Hash zu berechnen, wird der Block Header (Schwierigkeit, Zeitstempel, Zusatzzahl) zwei mal mit dem SHA256 Algorithmus 
 gehashed. Hierbei kommt ein 32-byte Hash heraus, welcher mit vielen Nullstellen beginnt. Jeder Block hat einen distinkten Block
 Header Hash, wodurch es keine doppelte Blöcke geben kann. Der erste Block (Genesis-Block) der Blockchain hat einen Hashwert von
-000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f.
+000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f. (Antonopoulos, 2017, S. 199)
 
 
 \subsection{Genesis-Block}
