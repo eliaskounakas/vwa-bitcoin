@@ -2,9 +2,13 @@ Nakamoto: https://bitcoin.org/bitcoin.pdf
 coinbase: https://www.coinbase.com/price/bitcoin
 andrea corbellini: https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/
 Andreas Antonopoulos: Mastering Bitcoin 2nd Edition
-Luke Dashjr: https://github.com/bitcoin/bips/
+Luke Dashjr (BIPs): https://github.com/bitcoin/bips/
 
-
+ECDSA
 https://math.mit.edu/classes/18.783/2022/LectureSlides1.pdf
 https://math.mit.edu/classes/18.783/2022/LectureNotes1.pdf
 https://math.mit.edu/classes/18.783/2022/LectureNotes2.pdf
+
+
+True Randomness
+http://publications.csail.mit.edu/lcs/pubs/pdf/MIT-LCS-TM-371.pdf

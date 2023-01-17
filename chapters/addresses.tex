@@ -22,7 +22,7 @@ Base58Check wiederum ist ein Codierungsformat von Base58, welches oft in Bitcoin
 Fehlerüberprüfungs-Code besitzt. Die Prüfsumme wird vom Hash der codierten Daten abgeleitet und kann deswegen genutzt werden, 
 um Tippfehler und andere Fehler zu erkennen. Wenn die Prüfsumme also nicht mit den codierten Daten übereinstimmt, gilt die
 eingegebene Bitcoin-Adresse als ungültig. Dies verhindert den Versand an falsche Bitcoin-Adressen und dadurch den Verlust
-von Geld. (Antonopoulos, 67)
+von Geld. (Vgl. Antonopoulos, 2017, 67)
 
 Die meisten Daten in Bitcoin werden Base58Check-codiert, was es einfacher macht, mit den Daten zu arbeiten. Zudem wird ein Präfix
 bei jeder Base58Check-Codierung genutzt, welche den Datentyp angibt, um welchen es sich handelt. Das ermöglicht dem Nutzer, schnell
@@ -49,5 +49,50 @@ Datei.
 
 \subsection{Private Schlüssel generieren}
 Prinzipiell sind private Schlüssel eine zufällige Zahl zwischen 1 und \( 2^{256} \) bzw. \( 1,15 * 10^{77} \). Um diese enorme Zahl
-zu relativisieren: die geschätzte Anzahl der Atome im sichtbaren Universum beträgt \( 10^{80} \). (Antonopoulos, 59) Die Chance,
-zwei mal denselben privaten Schlüssel zu generieren ist also extrem gering.
+zu relativisieren: die geschätzte Anzahl der Atome im sichtbaren Universum beträgt \( 10^{80} \). (Vgl. Antonopoulos, 2017, 59) Die Chance,
+zwei mal denselben privaten Schlüssel zu generieren ist also extrem gering. Die einfachste Methode, um einen privaten Schlüssel
+zu generieren, ist der Munzwurf: Kopf und Zahl wird jeweils 0 und 1 zugewiesen. Danach muss die Münze 256 mal geworfen werden
+und man erhält eine 256-Bit lange Zahl. Prinzipiell kann man mit allem, was zufällig geschieht, einen privaten Schlüssel generieren.
+Natürlich möchte man nicht für jeden privaten Schlüssel 256 Münzwürfe machen, deswegen werden hierfür Rechner genutzt. Ein großes
+Problem in der Computerwelt ist es jedoch, zufällige Zahlen erzeugen zu können. Computer sind schlicht und ergreifend nicht dazu 
+geeignet, Zufälle generieren zu können.
+
+\subsection{Natürliche Zufallsquellen}
+Aufgrund des Kerchoff'schen Prinzips muss die Definition eines Zufallszahlengenerators, der für Kryptografie geeignet ist, beinhalten, 
+dass selbst wenn jedes Detail über den Generator bekannt ist (Schaltplan, Algorithmen usw.), er immer noch vollständig unvorhersehbare 
+Bits erzeugen muss. Im Gegensatz zu PRNGs(Pseudorandom number generator) extrahieren physische (echte, Hardware) Zufallszahlengeneratoren 
+Zufälligkeit aus physischen Prozessen, die auf fundamental undeterministischer Weise verhalten, was sie zu besseren Kandidaten für die 
+Erzeugung von wahren Zufallszahlen macht. Physische Prozesse sind (Vgl. Stipčević, 2014, S. 5f):
+\begin{itemize}
+    \item Geräusche (Radiowellen, Atmosphärische)
+    \item harmonische Oszillatoren
+    \item Quantenfluktuation
+  \end{itemize}
+Diese VWA beschäftigt sich mit den geräusch-basierten Zufallsgeneratoren.
+
+Wärmerauschen ist eine Art von Rauschen, das in elektrischen Schaltungen auftritt und durch die thermische Bewegung von Ladungsträgern
+(normalerweise Elektronen) in elektrischen Leitern verursacht wird. Die thermische Bewegung der Ladungsträger in einem elektrischen Leiter führt 
+zu Schwankungen im Stromfluss, die als Rauschen interpretiert werden können. Dieses Rauschen ist proportional zur Temperatur des Leiters und der 
+elektrischen Leitfähigkeit des Materials. Es ist auch unabhängig von der Art des Leiters und tritt in allen elektrischen Leitern auf, 
+einschließlich Metallen, Halbleitern und sogar Isolatoren.Das Johnson-Nyquist-Rauschen ist ein weißes Rauschen, das bedeutet, dass die 
+Frequenzverteilung des Rauschens gleichmäßig über einen breiten Frequenzbereich verteilt ist. Es hat auch eine bestimmte Spectral Density 
+(Leistung pro Frequenzband) die proportional zur Temperatur und der elektrischen Leitfähigkeit des Leiters ist.
+
+Eine weitere Art des Rauschens ist das chaotische Rauschen das durch chaotische Systeme erzeugt wird. Chaotische Systeme sind Systeme, die sehr 
+empfindlich auf kleine Änderungen in den Anfangsbedingungen reagieren und dazu neigen, unvorhersehbare und zufällige Muster zu erzeugen. Ein Beispiel 
+für ein chaotisches System, das zur Erzeugung von Chaos-Noise verwendet werden kann, ist die Lorenz-Attraktor, die auf drei gekoppelten 
+Differentialgleichungen basiert und eine Art von chaotischem Verhalten erzeugt, das als "Butterfly-Effekt" bekannt ist. (Vgl. Uwe Jönck und Florian Prill, 2003, S. 3ff)
+
+Manche Arten von Rauschen (insbesondere Johnson-Rauschen) erzeugen sehr kleine Spannungen, die vor der Umwandlung in digitale Form stark verstärkt
+werden müssen. Die starke Verstärkung führt zu weiteren Abweichungen von der Zufälligkeit aufgrund der begrenzten Bandbreite und nicht-linearen 
+Verstärkung des Verstärkers. Außerdem kann schnelles elektrisches Schalten von binärer Logik, die in der RNG-Schaltung verwendet wird, starke 
+elektromagnetische Störungen verursachen, so dass mehrere RNGs in der Nähe (insbesondere auf einem Chip) tendenziell zur gegenseitigen 
+Synchronisierung neigen, was zu einem starken Rückgang der Gesamtentropie führt. Darüber hinaus können empfindliche Verstärker durch externe 
+elektromagnetische Felder leicht manipuliert werden, was für Kryptoangriffe ausgenutzt werden kann. (Vgl. Stipčević, 2014, S. 7)
+
+
+
+
+
+
+
