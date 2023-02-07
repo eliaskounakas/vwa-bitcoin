@@ -81,7 +81,7 @@ Frequenzverteilung des Rauschens gleichmäßig über einen breiten Frequenzberei
 Eine weitere Art des Rauschens ist das chaotische Rauschen das durch chaotische Systeme erzeugt wird. Chaotische Systeme sind Systeme, die sehr 
 empfindlich auf kleine Änderungen in den Anfangsbedingungen reagieren und dazu neigen, unvorhersehbare und zufällige Muster zu erzeugen. Ein Beispiel 
 für ein chaotisches System, das zur Erzeugung von Chaos-Noise verwendet werden kann, ist die Lorenz-Attraktor, die auf drei gekoppelten 
-Differentialgleichungen basiert und eine Art von chaotischem Verhalten erzeugt, das als "Butterfly-Effekt" bekannt ist. (Vgl. Uwe Jönck und Florian Prill, 2003, S. 3ff)
+Differentialgleichungen basiert und eine Art von chaotischem Verhalten erzeugt, das als ''Butterfly-Effekt'' bekannt ist. (Vgl. Uwe Jönck und Florian Prill, 2003, S. 3ff)
 
 Manche Arten von Rauschen (insbesondere Johnson-Rauschen) erzeugen sehr kleine Spannungen, die vor der Umwandlung in digitale Form stark verstärkt
 werden müssen. Die starke Verstärkung führt zu weiteren Abweichungen von der Zufälligkeit aufgrund der begrenzten Bandbreite und nicht-linearen 
@@ -91,8 +91,37 @@ Synchronisierung neigen, was zu einem starken Rückgang der Gesamtentropie führ
 elektromagnetische Felder leicht manipuliert werden, was für Kryptoangriffe ausgenutzt werden kann. (Vgl. Stipčević, 2014, S. 7)
 
 
+\section{Öffentliche Schlüssel}
+Um Bitcoin-Adressen ihre irreversiblen Eigenschaften zu verleihen, wird das Public-Key-Kryptosystem bzw. das asymmetrische
+Kryptosystem genutzt. Dieses System wurde 1970 basierend auf mathematischen Funktionen erfunden und ist Grundlage für die heutige
+Cybersecurity.
 
+Im Laufe der Geschichte wurden mehrere mathematische Funktionen entdeckt, die für Public-Key-Kryptosysteme verwendet werden können
+wie beispielsweise das Potenzieren von Primzahlen und die Multiplikation eines bestimmten Punktes auf einer elliptischen Kurve
+(diese Funktion wird auch von Bitcoin genutzt). Das besondere an diesen Funktionen ist, dass man sie nur in eine Richtung
+berechnen kann bzw. ist es sehr viel schwerer sie in die andere Richtung zu berechnen. Basierend auf diesen mathematischen
+Funktionen erlaubt die Kryptographie es, digitale Geheimnisse und nicht fälschbare Unterschriften zu kreieren. (Vgl. Antonopoulos
+, 2017, S. 62)
 
+Zwischen dem privaten und öffentlichen Schlüssel gibt es eine mathematische Beziehung. Der öffentliche Schlüssel wird nämlich
+aus dem privaten Schlüssel mit der Multiplikation eines Punktes auf einer elliptischen Kurve generiert. Aus dieser mathematischen
+Beziehung können digitale Unterschriften generiert werden. Die digitale Unterschrift kann auf Korrektheit einzig und allein mit
+dem öffentlichen Schlüssel geprüft werden. Um jedoch eine Unterschrift generieren zu können, benötigt man den privaten Schlüssel.
+Das bedeutet, dass jeder prüfen kann, ob eine Transaktion valide ist, aber nur derjenige beziehungsweise diejenige mit Zugriff auf den 
+privaten Schlüssel kann Transaktionen tätigen.
 
+Bei einer vollständigen Transaktion muss der Besitzer beziehungsweise die Besitzerin sowohl den öffentlichen Schlüssel als auch die
+dazugehörige Unterschrift, welche bei jeder Transaktion anders ist, vorzeigen, um Bitcoins ausgeben zu können. Daraufhin kann 
+jeder Knotenpunkt im Bitcoin-Netzwerk für sich selbst entscheiden, ob die Transaktion korrekt ist und somit bestätigen, dass 
+der Versender beziehungsweise die Versenderin tatsächlich zum Zeitpunkt der Transaktion die Bitcoins besitzt.
 
+Einfach dargestellt ist die Berechnung des öffentlichen Schlüssels durch die Multiplikation elliptischer Kurven unter Verwendung
+des privaten Schlüssels wie folgt:
+
+\[ K = k * G \]
+
+k ist der private Schlüssel, G ist eine Konstante mit dem Namen ''Generator Point'' und K ist der resultierende öffentliche Schlüssel.
+In diese Richtung ist die Berechnung relativ simpel, in die andere jedoch fast unmöglich. Um den Wert von k herauszufinden, wenn
+man K kennt, bleibt nichts anderes übrig als alle möglichen Werte für k einzusetzen, bis man auf den Wert von K stößt. (Vgl. 
+Antonopoulos, 2017, S. 65)
 
