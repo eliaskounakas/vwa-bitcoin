@@ -7,13 +7,25 @@ nachdem sie einmal bestätigt wurden. Daher sollte man sorgfältig darauf achten
 Bitcoin-Transaktion durchführt.
 
 \section{Wallets}
-Eine Wallet besteht aus Software, die private und öffentliche Schlüssel enthält und die Blockchain nutzt, um Währungen zu senden
+Eine Wallet besteht aus Software, die private und öffentliche Schlüssel enthält und die Blockchain nutzt, um Währung zu senden
 und zu empfangen. Die Währung in diesen Wallets wird in Form von Coins, wie beispielsweise Bitcoin, hinzugefügt. Um Coins oder
 Währung empfangen oder senden zu können, muss eine Wallet erstellt werden. Die Währung selbst ist nicht an einem Ort in der Wallet
 gespeichert, sondern befindet sich in der Form von Transaktionsaufzeichnungen in der Blockchain. (Vgl. Yadav, Kuri und Goar,
-2020, S. 4) Demnach enthält die Wallet lediglich die Informationen (Schlüssel), um Bitcoins auszugeben, nicht aber die Währung
+2020, S. 4) Demnach enthält die Wallet lediglich die Informationen (Schlüssel), um Währung auszugeben, nicht aber die Währung
 selbst.
 
+Es gibt zwei primäre Arten von Wallets, welche sich darin unterscheiden, ob die enthaltenen Schlüssel zusammenhängend sind oder
+nicht. Die erste Art einer Wallet ist die nichtdeterministische Wallet, bei welcher jeder Schlüssel unabhängig von einer 
+zufälligen Zahl generiert wird. Die Schlüssel in dieser Wallet sind NICHT zusammenhängend. Die zweite Art einer Wallet ist die
+deterministische Wallet, bei welcher alle Schlüssel Derivate von einem Masterschlüssel, welcher auch als Samen bezeichnet wird.
+Alle Schlüssel in dieser Art von Wallet sind zusammenhängend und können neu generiert werden, solange man den originalen Samen
+beziehungsweise den Masterschlüssel hat. Es gibt mehrere Methoden zur Derivation von Schlüsseln, welche in deterministischen
+Wallets genutzt werden. Die häufigste genutzte Derivationsmethode nutzt eine baumähnliche Struktur und wird als hierarchische
+deterministische (HD) Wallet bezeichnet. (Vgl. Antonopoulos, 20)
+
+\subsection{Deterministische Wallets}
+
+\subsection{Nichtdeterministische Wallets}
 
 \section{Eingaben und Ausgaben}
 Die Blockchain ist ein global vereinbartes Register aller jemals durchgeführten Transaktionen und wird ständig als eine einzige 
