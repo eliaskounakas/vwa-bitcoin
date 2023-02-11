@@ -7,7 +7,6 @@ Die Hashfunktion nimmt den öffentlichen Schlüssel als Eingabe und gibt einen H
 wird nicht als Adresse genutzt, weil der Hash weniger Speicherplatz benötigt. Der Hash wird dann mithilfe einer weiteren 
 Mathematikfunktion, der Base58Check-Codierung, in eine lesbare Adresse umgewandelt.
 
-\section{Base58Check-Codierung}
 Um große Zahlen mit wenigen Zeichen darzustellen, nutzen Computersysteme häufig alphanumerische Zahlensysteme mit einer Basis,
 die größer als 10 ist. Das Dezimalsystem nutzt die 10 Ziffern 0-9, während das Hexadezimalsystem zusätzlich die Buchstaben A-F
 nutzt, wodurch es 16 Ziffern hat. Deshalb sind Zahlen, welche hexadezimal dargestellt werden, kürzer. Base64 ist ein weiteres
@@ -123,5 +122,7 @@ des privaten Schlüssels wie folgt:
 k ist der private Schlüssel, G ist eine Konstante mit dem Namen ''Generator Point'' und K ist der resultierende öffentliche Schlüssel.
 In diese Richtung ist die Berechnung relativ simpel, in die andere jedoch fast unmöglich. Um den Wert von k herauszufinden, wenn
 man K kennt, bleibt nichts anderes übrig als alle möglichen Werte für k einzusetzen, bis man auf den Wert von K stößt. (Vgl. 
-Antonopoulos, 2017, S. 65)
+Antonopoulos, 2017, S. 65) Deshalb nennt man Funktionen wie diese ''Einwegfunktionen'' beziehungsweise ''trapdoor funtions''.
+
+
 
