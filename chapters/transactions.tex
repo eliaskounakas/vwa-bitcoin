@@ -20,10 +20,28 @@ zufälligen Zahl generiert wird. Die Schlüssel in dieser Wallet sind NICHT zusa
 deterministische Wallet, bei welcher alle Schlüssel Derivate von einem Masterschlüssel, welcher auch als Samen bezeichnet wird.
 Alle Schlüssel in dieser Art von Wallet sind zusammenhängend und können neu generiert werden, solange man den originalen Samen
 beziehungsweise den Masterschlüssel hat. Es gibt mehrere Methoden zur Derivation von Schlüsseln, welche in deterministischen
-Wallets genutzt werden. Die häufigste genutzte Derivationsmethode nutzt eine baumähnliche Struktur und wird als hierarchische
-deterministische (HD) Wallet bezeichnet. (Vgl. Antonopoulos, 20)
+Wallets genutzt werden. Die am häufigsten genutzte Derivationsmethode nutzt eine baumähnliche Struktur und wird als 
+hierarchische deterministische (HD) Wallet bezeichnet. (Vgl. Antonopoulos, 2017, S. 93f)
 
 \subsection{Deterministische Wallets}
+Deterministische Wallets beinhalten private Schlüssel, welche alle von einem gemeinsamen Samen abstammen. Die privaten Schlüssel
+werden vom Samen durch Einwegfunktionen beziehungsweise Hashfunktionken berechnet. Der Samen ist eine zufällig generierte Zahl,
+welche mit anderen Daten wie zum Beispiel einer Index Nummer kombiniert wird, um dann mittels einer Hashfunktion einen privaten
+Schlüssel generiert. Im Gegensatz zu der nichtdeterministischen Wallet benötigt man bei der deterministischen Wallet einzig und 
+allein den Samen, um auf alle Schlüssel zugreifen zu können, da diese alle vom Samen abstammen. Aus diesem Grunde benötigt man
+nur ein einziges Backup, welches bei der Erstellung der Wallet gespeichert wird. Vorteilhaft ist dabei auch die Mobilität der
+Wallet: Man muss einzig und allein den Samen auf die neue Wallet-Umgebung transferieren, um wieder Zugriff auf alle Schlüssel
+zu haben. (Vgl. Antonopoulos, 2017, S. 95)
+
+Im BIP-32 standard wurde die häufigste Art der deterministischen Wallets implementiert: die hierarchische deterministische Wallet.
+HD Wallets enthalten Schlüssel, die in einer Baumstruktur angeordnet sind. Ein Schlüssel kann Töchterschlüssel generieren, von 
+welchen wiederum Enkelschlüssel generiert werden können, und so weiter, bis in die Unendlichkeit. Abgesehen von der Mobilität
+hat die HD Wallet noch zwei weitere Vorteile gegenüber nichtdeterministischen Wallets. Erstens können bestimmte Äste von
+Schlüsseln genutzt werden, um ihnen organisatorische Bedeutung zu verleihen. Beispielsweise kann ein Ast von Schlüsseln genutzt
+werden, um Zahlungen zu senden und ein andere Ast von Schlüsseln erhält dann das Wechselgeld. Zweitens können Nutzer von HD
+Wallets eine Reihe von öffentlichen Schlüsseln generieren, ohne Zugriff auf die zugehörigen privaten Schlüssel zu haben. Dadurch 
+können die Schlüssel auf unsicheren Servern genutzt. (Vgl. Antonopoulos, 2017, S. 96)
+
 
 \subsection{Nichtdeterministische Wallets}
 
