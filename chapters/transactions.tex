@@ -44,8 +44,15 @@ können die Schlüssel auf unsicheren Servern genutzt. (Vgl. Antonopoulos, 2017,
 
 
 \subsection{Nichtdeterministische Wallets}
+Anfangs bestanden Bitcoin Wallets aus einer Sammlung von zufällig generierten privaten Schlüsseln. Der erste Bitcoin Client
+hatte 100 Schlüssel vorprogrammiert und generierte bei Bedarf mehr, wobei jeder Schlüssel nur einmal genutzt wird. Dies mag
+für die Sicherheit vor Hackern gut klingen, jedoch ist es wegen der fehlenden Verwandtschaft der Schlüssel sehr schwierig
+zu verwalten. Keine der Schlüssel haben eine Verbindungen miteinander und es muss jeweils für jeden Schlüssel ein Backup
+erstellt werden. Desto mehr Schlüssel generiert werden, desto aufwändiger ist es, alle Schlüssel zu verwalten und ein Backup
+für diese zu erstellen.
 
-\section{Eingaben und Ausgaben}
+
+\section{Ausgaben und Eingaben}
 Die Blockchain ist ein global vereinbartes Register aller jemals durchgeführten Transaktionen und wird ständig als eine einzige 
 verknüpfte Liste erweitert. Jede Transaktion in der Blockchain, zum Beispiel Alice, die Bob 10 Bitcoins zahlt, hat einen oder
 mehrere Transaktionausgänge (TXO), die als Summen aus verwendbarer Bitcoins dienen. Hierbei muss beachtet werden, dass Bitcoin
@@ -53,5 +60,12 @@ Summen nicht in kleinere Summen aufgeteilt werden können, d.h., dass es im Norm
 den Sender zurückgezahlt wird, ähnlich wie beim Wechselgeld im Falle normaler Währung. Sobald Bob die TXO beziehungsweise 
 die Summen seiner verwendbaren Bitcoins erhält, bezeichnet man sie als unausgegebene Transaktionausgänge (UTXO). Sie bleiben
 UTXOs, bis der Besitzer (in diesem Beispiel Bob) sie einlöst, um jemand anderen zu bezahlen (in diesem Fall werden sie wieder
-als ausgegebene TXOs bezeichnet). (Vgl. Konrad und Pinto, 2015, S. 1)
+als ausgegebene TXOs bezeichnet). (Vgl. Konrad und Pinto, 2015, S. 1) Vor jeder Transaktion befindet sich eine vier-byte lange
+Transaktionsversionnummer, welche anderen Peers und Minern sagt, mit welchen Regeln diese Transaktion bestätigt werden soll.
+UTXOs haben eine Indexnummer basierend auf ihrer Lage in der Transaktion. Wenn ein beliebiger Bitcoin (oder nur ein Anteil)
+zum ersten mal versendet wird, nachdem dieser gemined wurde, hat die zugehörige Transaktion eine Indexnummer von 0. Im Gegensatz
+zu Ausgaben (UTXOs), haben Eingaben (TXOs) eine Ausgabenindexnummer, um den UTXO zu spezifisieren, der ausgegeben werden soll.
+Zudem hat es einen Skript mit bestimmten Parametern, welcher erfüllt werden muss, um die Bitcoins ausgeben zu können.
+
+
 
