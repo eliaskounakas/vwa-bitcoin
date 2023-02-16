@@ -79,7 +79,43 @@ Gebührenpreis durch Kapazität des Bitcoin-Netzwerkes und Transaktionsvolumen b
 wodurch das Kapazitätslimit erreicht wurde und die Transaktionsgebührenpreise in die Höhe schossen; Transaktionen ohne
 Transaktionsgebühren sind dadurch Geschichte gewesen. (Vgl. Antonopoulos, 2017, S. 127)
 
+\section{Transaktionenskripts}
+Bitcoin nutzt eine eigene Stapel-basierte Skriptsprache mit einer Reihe von Opcodes. Diese Skriptsprache, welche auch ganz 
+einfach ''Script'' genannt wird, wird genutzt, um festzustellen, ob ein unausgegebener Transaktionsausgang (UTXO) ausgegeben 
+werden kann, oder nicht. Wenn Bitcoin versendet wird,
+dann wird lediglich ein Bitcoinwert zu einem Skript zugewiesen, welcher nur ausgegeben kann, wenn der Skript erfolgreich
+ausgeführt wird und ein einziger ''true'' Wert auf dem Stapel entsteht. Den Skript, welcher dem UTXO zugewiesen ist, nennt man
+''scriptPubKey''. Um die Bedingungen des Skriptes zu erfüllen, muss man eine korrekte ''scriptSig'' zur Verfügung stellen,
+welche auch ein Skript ist und ausgeführt wird, um zu testen, ob der Versand von Bitcoin funktioniert hat. (Vgl. Baczuk, 2019,
+S. 1) Skript ist eine sehr einfach Sprache, welche dazu gemacht wurde, nicht viele Möglichkeiten zu bieten und auf fast jedem
+Gerät ausführbar ist, wie zum Beispiel einem eingebetteten System. Die Sprache benötigt minimale Prozessorkraft und kann nicht 
+viele der schicken Dinge tun, die moderne Programmiersprachen können. Zweck ist, dass eine Sprache, die nicht viele Möglichkeiten
+bietet, sich einfach überprüfen lässt und sehr robust gegen Bugs o.Ä. ist, was sie zu einem perfekten Kandidaten für die 
+Versendung von Währung in Bezug auf Sicherheit macht.
 
+Bitcoins Skriptsprache wird Stapel-basiert genannt, weil sie eine Datenstruktur names ''Stapel'' nutzt. Ein Stapel ist ein sehr
+einfaches Datenkonstrukt, welches man sich wie einen Stapel von Karten vorstellen kann. Ein Stapel hat zwei mögliche Operationen:
+Push (drauflegen) und Pop (herunternehmen). Push legt ein Objekt an die Spitze des Stapels. Pop entfernt ein Objekt von der
+Spitze des Stapels. Operationen auf einem Stapel können nur mit dem obersten Objekt des Stapels interagieren. Deshalb nennt man
+dieses Konzept auch Last-In-First-Out-Prinzip (LIFO). Die Skriptsprache führt den Skript aus, indem sie jedes Objekt von link
+nach rechts ausliest. Dabei werden Zahlen (Datenkonstanten) auf den Stapel hinaufgelegt. Operatoren können mehrere Elemente auf
+einmal von dem Stapel herunternehmen und drauflegen, mit diesen interagieren und möglicherweise ein daraus resultierendes Objekt
+zurück auf den Stapel legen. Beispielsweise kann OP\_ADD zwei Objekte von dem Stapel herunternehmen, diese addieren, und das
+resultierende Ergebnis wieder auf den Stapel legen.
+Bedingte Operatoren prüfen eine Bedingung und geben boolean Wert von TRUE oder FALSE zurück. Beispielsweise kann OP\_EQUAL zwei
+Objekte vom Stapel herunternehmen und legt TRUE (wird in Script als 1 dargestellt) zurück hinauf, wenn die Elemente denselben
+Wert haben und FALSE (wird in Script als 0 dargestellt), wenn die Elemente nicht denselben Wert haben. Im Normalfall haben
+Bitcoin-Transaktions-Skripts einen bedingten Operator, um die Gültigkeit der Transaktion als gültig beziehungsweise TRUE oder
+ungültig beziehungsweise FALSE zu bestimmen.  (Vgl. Antonopoulos, 2017, S. 133s)
 
-
-
+Im ursprünglichen Bitcoin Client (heute Bitcoin Core) waren der ''scriptPubKey'' beziehungsweise der Ausgabeskript und der 
+''scriptSig'' beziehungsweise der Eingabeskript miteinander verkettet und in einer Sequenz ausgeführt worden. Aus 
+Sicherheitsgründen wurde dies 2010 geänder, da es eine Verwundbarkeit gab, wodurch missgebildete Ausgabeskripts in der 
+Lage waren, Daten auf den Stapel des Eingabeskripts zu legen und diesen dadurch zu korrumpieren. Heutzutage werden die Skripte
+deswegen seperat ausgeführt und die Stapel werden zwischen den Ausführungen transferiert, wie folgend beschrieben: Zuerst wird
+der Ausgabeskript mit dem Script Engine ausgeführt. Falls der Ausgabeskript ohne Fehler (d.h. keine verbleibenden Operatorn)
+ausgeführt wird, wird der Hauptstapel kopiert und der Eingabeskript wird ausgeführt. Wenn das Ergebnis der Ausführung des 
+Eingabeskriptes mit den Stapeldaten des kopierten Ausgabeskriptes übereinstimmt (d.h. das Ergebnis ist TRUE oder 1), hat der 
+Ausgabeskript es geschafft, die Bedingungen des Eingabeskriptes zu erfüllen und ist daher erlaubt, die enthaltenen UTXOs
+auszugeben. Resultiert irgendein anderes Ergebnis außer TRUE beziehungsweise 1, nachdem der kombinierte Skript ausgeführt wurde,
+ist die Eingabe ungültig, weil er es nicht geschafft hat, die Bedingungen zu erfüllen, welche auf dem UTXO gestzt sind.
