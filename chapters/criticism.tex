@@ -1,4 +1,4 @@
-\section{Skalierbarkeit}
+\subsection{Skalierbarkeit}
 Da Bitcoin ein selbstregulierendes System ist, welches durch das ''Mining'' von Blöcken alle 10 Minuten funktioniert, ist die
 höchste Anzahl von Transaktionen prinzipiell die maximale Größe eines Blocks dividiert durch das Mining-Intervall. Bei einem
 Intervall von 10 Minuten, um Transaktionen zu bestätigen, schafft es Bitcoin auf einem Transaktionsdurchsatz von 7 Transaktionen 
@@ -13,8 +13,7 @@ nur dadurch sicher bleiben kann.
 
 Um solche Probleme zu lösen, müssen sogenannte ''Forks'' das System von Grund auf ändern.
 
-\subsection{Hard Forks}
-Diese Art von Fork wird als Hard Fork bezeichnet, da das Netzwerk nach dem Fork nicht wieder auf eine einzige Blockchain 
+Eine Art von Fork wird als Hard Fork bezeichnet, da das Netzwerk nach dem Fork nicht wieder auf eine einzige Blockchain 
 konvergiert. Stattdessen entwickeln sich die beiden Blockchains unabhängig voneinander weiter. Hard Forks treten auf, wenn ein 
 Teil des Netzwerkes unter einem anderen Satz von Konsensregeln arbeitet als der Rest des Netzwerkes. Dies kann aufgrund eines
 Fehlers oder aufgrund einer bewussten Änderung in der Implementierung der Konsensregeln auftreten. Hard Forks können verwendet
@@ -24,10 +23,9 @@ Hard Forks auf eine separate Kette gezwungen. Eine Änderung, die durch einen Ha
 ''vorwärtskompatibel'' betrachtet werden, da nicht aktualisierte Systeme die neuen Konsensregeln nicht mehr verarbeiten können.
 (Vgl. Antonopoulos, 2017, S. 257)
 
-\subsection{Soft Forks}
 Nicht alle Änderungen der Konsensregeln führen zu einem Hard Fork. Nur Konsensänderung, die nicht vorwärtskompatibel sind,
 verursachen einen Fork. Wenn die Änderung so implementiert wird, dass ein unveränderter Client die Transaktion oder den
-Block weiterhin als gültig gemäß den vorherigen Regeln betrachtet, kann die Änderung ohne Fork erfolgen. aDer Begriff
+Block weiterhin als gültig gemäß den vorherigen Regeln betrachtet, kann die Änderung ohne Fork erfolgen. Der Begriff
 ''Soft Fork'' wurde eingeführt, um diese Upgrade-Methode von einem ''Hard Fork'' zu unterscheiden. In der Praxis ist ein Soft
 Fork überhaupt kein Fork. Ein Soft Fork ist eine vorwärtskompatible Änderung der Konsensregeln, die es nicht aktualisieren
 Clients weiterhin ermöglicht, im Konsens mit den neuen Regeln zu arbeiten. Soft Forks können auf verschiedene Arten implementiert
@@ -35,7 +33,7 @@ werden - der Begriff definiert keine spezifische Methode, sondern eine Reihe von
 erfordern nicht, dass alle Nodes aktualisiert werden oder zwingen nicht aktualisierte Nodes aus dem Konsens. (Vgl. Antonopoulos,
 2017, S. 261)
 
-\section{Verluste}
+\subsection{Verluste}
 Kritiker betonen oft die fehlende physikalische Form von Bitcoin, und das zurecht. Bitcoins können nur in der digitalen Welt
 existieren und man ist dadurch auf Wallets angewiesen. Wenn man in irgendeiner Art und Weise Zugriff auf diese Wallet verliert,
 sind die darauf enthaltenen Schlüssel (und im Zuge dessen auch die Bitcoins) für immer verloren. Das kann bei digitalen Wallets 
@@ -48,7 +46,7 @@ Bitcoin ist derzeit so konzipiert, dass es in Einheiten names Satoshis unterteil
 entsprechen. Die Tatsache, dass Bitcoins so teilbar sind, soll bedeuten, dass aufrund der asymptotischen Grenze von 21
 Millionen Bitcoins * 100.000.000 Satoshis pro Bitcoin insgesamt 2.100.000.000.000.000 (2,1 Billiarden) Satoshis möglich sind.
 Dadurch kann Bitcoin eine lebensfähige globale Währung sein, die praktisch jede Art von Expansion im Maßstab von Nationen 
-unterstützen kann. (Vgl. Hanley, 2013)
+unterstützen kann. (Vgl. Hanley, 2013, S. 7)
 Hier tritt das Problem der Verluste in einer neuen Form auf: Wenn Wallets verloren gehen, dann sind auch die 
 darauf enthaltenen Bitcoins für immer aus dem Bitcoin-Netzwerk verloren. Die einzige Methode, mit welcher man die Bitcoins
 zurückholen könnte, ist alle Private-Schlüssel-Kombinationen auszuprobieren, bis man auf eine Wallet stoßt, auf welcher Bitcoins

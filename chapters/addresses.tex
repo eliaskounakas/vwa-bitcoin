@@ -1,4 +1,4 @@
-\section{Bitcoin-Adressen generieren}
+\subsection{Bitcoin-Adressen generieren}
 In Bitcoin werden Adressen verwendet, um Transaktionen zu empfangen und zu senden. Eine Bitcoin-Adresse ist eine Zeichenfolge, 
 die aus einer Reihe von Zahlen und Buchstaben besteht und einem öffentlichen Schlüssel entspricht.
 
@@ -28,7 +28,7 @@ bei jeder Base58Check-Codierung genutzt, welche den Datentyp angibt, um welchen 
 zu erkennen, welche Art von Daten dargestellt werden. Beispielsweise haben Bitcoin-Adressen in Base58Check den Präfix 0x00, welcher
 umgewandelt auf Base58 1 ergibt. Private Schlüssel wiederum haben den Präfix 0x80 in Base58Check bzw. 5 in Base58.
 
-\section{Private Schlüssel}
+\subsection{Private Schlüssel}
 Im Bitcoin-Netzwerk ist der private Schlüssel eine geheime Zahl, die genutzt wird, um Bitcoin-Ausgaben ausgehend von einer 
 bestimmten Bitcoin-Adresse zu authorisieren. Der private Schlüssel ist eine kritische Komponente der kryptographischen Sicherheit,
 auf welche das Bitcoin-Netzwertk aufbaut. Genutzt wird der private Schlüssel, um Authentizität bei Transaktionen zu beweisen und
@@ -46,7 +46,7 @@ von ungefähr \( 6.2 * 10^{70} \). Generiert werden private Schlüssel mit versc
 Zufallszahlengenerator. Gespeichert werden private Schlüssel im Normalfall auf einem Computer oder Smartphone in einer sicheren 
 Datei.
 
-\subsection{Private Schlüssel generieren}
+\subsubsection{Private Schlüssel generieren}
 Prinzipiell sind private Schlüssel eine zufällige Zahl zwischen 1 und \( 2^{256} \) bzw. \( 1,15 * 10^{77} \). Um diese enorme Zahl
 zu relativisieren: die geschätzte Anzahl der Atome im sichtbaren Universum beträgt \( 10^{80} \). (Vgl. Antonopoulos, 2017, 59) Die Chance,
 zwei mal denselben privaten Schlüssel zu generieren ist also extrem gering. Die einfachste Methode, um einen privaten Schlüssel
@@ -56,7 +56,7 @@ Natürlich möchte man nicht für jeden privaten Schlüssel 256 Münzwürfe mach
 Problem in der Computerwelt ist es jedoch, zufällige Zahlen erzeugen zu können. Computer sind schlicht und ergreifend nicht dazu 
 geeignet, Zufälle generieren zu können.
 
-\subsection{Natürliche Zufallsquellen}
+\subsubsection{Natürliche Zufallsquellen}
 Aufgrund des Kerchoff'schen Prinzips muss die Definition eines Zufallszahlengenerators, der für Kryptografie geeignet ist, beinhalten, 
 dass selbst wenn jedes Detail über den Generator bekannt ist (Schaltplan, Algorithmen usw.), er immer noch vollständig unvorhersehbare 
 Bits erzeugen muss. Im Gegensatz zu PRNGs(Pseudorandom number generator) extrahieren physische (echte, Hardware) Zufallszahlengeneratoren 
@@ -90,7 +90,7 @@ Synchronisierung neigen, was zu einem starken Rückgang der Gesamtentropie führ
 elektromagnetische Felder leicht manipuliert werden, was für Kryptoangriffe ausgenutzt werden kann. (Vgl. Stipčević, 2014, S. 7)
 
 
-\section{Öffentliche Schlüssel}
+\subsection{Öffentliche Schlüssel}
 Um Bitcoin-Adressen ihre irreversiblen Eigenschaften zu verleihen, wird das Public-Key-Kryptosystem bzw. das asymmetrische
 Kryptosystem genutzt. Dieses System wurde 1970 basierend auf mathematischen Funktionen erfunden und ist Grundlage für die heutige
 Cybersecurity.

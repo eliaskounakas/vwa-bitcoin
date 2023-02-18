@@ -6,7 +6,7 @@ Es ist wichtig, zu beachten, dass Bitcoin-Transaktionen irreversibel sind, d.h. 
 nachdem sie einmal bestätigt wurden. Daher sollte man sorgfältig darauf achten, an die richtige Adresse zu senden, bevor man eine
 Bitcoin-Transaktion durchführt.
 
-\section{Wallets}
+\subsection{Wallets}
 Eine Wallet besteht aus Software, die private und öffentliche Schlüssel enthält und die Blockchain nutzt, um Währung zu senden
 und zu empfangen. Die Währung in diesen Wallets wird in Form von Coins, wie beispielsweise Bitcoin, hinzugefügt. Um Coins oder
 Währung empfangen oder senden zu können, muss eine Wallet erstellt werden. Die Währung selbst ist nicht an einem Ort in der Wallet
@@ -23,7 +23,7 @@ beziehungsweise den Masterschlüssel hat. Es gibt mehrere Methoden zur Derivatio
 Wallets genutzt werden. Die am häufigsten genutzte Derivationsmethode nutzt eine baumähnliche Struktur und wird als 
 hierarchische deterministische (HD) Wallet bezeichnet. (Vgl. Antonopoulos, 2017, S. 93f)
 
-\subsection{Deterministische Wallets}
+\subsubsection{Deterministische Wallets}
 Deterministische Wallets beinhalten private Schlüssel, welche alle von einem gemeinsamen Samen abstammen. Die privaten Schlüssel
 werden vom Samen durch Einwegfunktionen beziehungsweise Hashfunktionken berechnet. Der Samen ist eine zufällig generierte Zahl,
 welche mit anderen Daten wie zum Beispiel einer Index Nummer kombiniert wird, um dann mittels einer Hashfunktion einen privaten
@@ -43,7 +43,7 @@ Wallets eine Reihe von öffentlichen Schlüsseln generieren, ohne Zugriff auf di
 können die Schlüssel auf unsicheren Servern genutzt. (Vgl. Antonopoulos, 2017, S. 96)
 
 
-\subsection{Nichtdeterministische Wallets}
+\subsubsection{Nichtdeterministische Wallets}
 Anfangs bestanden Bitcoin Wallets aus einer Sammlung von zufällig generierten privaten Schlüsseln. Der erste Bitcoin Client
 hatte 100 Schlüssel vorprogrammiert und generierte bei Bedarf mehr, wobei jeder Schlüssel nur einmal genutzt wird. Dies mag
 für die Sicherheit vor Hackern gut klingen, jedoch ist es wegen der fehlenden Verwandtschaft der Schlüssel sehr schwierig
@@ -52,7 +52,7 @@ erstellt werden. Desto mehr Schlüssel generiert werden, desto aufwändiger ist 
 für diese zu erstellen.
 
 
-\section{Ausgaben und Eingaben}
+\subsection{Ausgaben und Eingaben}
 Die Blockchain ist ein global vereinbartes Register aller jemals durchgeführten Transaktionen und wird ständig als eine einzige 
 verknüpfte Liste erweitert. Jede Transaktion in der Blockchain, zum Beispiel Alice, die Bob 10 Bitcoins zahlt, hat einen oder
 mehrere Transaktionausgänge (TXO), die als Summen aus verwendbarer Bitcoins dienen. Hierbei muss beachtet werden, dass Bitcoin
@@ -79,7 +79,7 @@ Gebührenpreis durch Kapazität des Bitcoin-Netzwerkes und Transaktionsvolumen b
 wodurch das Kapazitätslimit erreicht wurde und die Transaktionsgebührenpreise in die Höhe schossen; Transaktionen ohne
 Transaktionsgebühren sind dadurch Geschichte gewesen. (Vgl. Antonopoulos, 2017, S. 127)
 
-\section{Transaktionenskripts}
+\subsection{Transaktionenskripts}
 Bitcoin nutzt eine eigene Stapel-basierte Skriptsprache mit einer Reihe von Opcodes. Diese Skriptsprache, welche auch ganz 
 einfach ''Script'' genannt wird, wird genutzt, um festzustellen, ob ein unausgegebener Transaktionsausgang (UTXO) ausgegeben 
 werden kann, oder nicht. Wenn Bitcoin versendet wird,

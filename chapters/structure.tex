@@ -1,4 +1,4 @@
-\section{Peer-to-Peer-Netzwerk}
+\subsection{Peer-to-Peer-Netzwerk}
 Im Bitcoin-Netzwerk gibt es keine zentrale Macht. Alle verbundenen Computer arbeiten miteinander als Peers. Peer-to-Peer
 bzw. P2P heißt, dass alle teilnehmenden Computer die gleichen Rechte und Hindernisse haben. Die einzelnen verbundenen Computer
 nennt man Nodes. Jede Node kommuniziert rund um die Uhr mit ihren benachbarten Nodes. Nodes können Informationen abfragen, 
@@ -17,7 +17,7 @@ selber zu Hause eine Bitcoin Node zum Laufen zu bringen. Die Zwecke für diese N
 Zum einen gibt es Leute, die mit ihrer Node nur mithören wollen, zum anderen aber auch diejenigen, die durch Mining Geld
 verdienen wollen. Aus diesem Grunde gibt es verschiedene Implementierungen und Rollen von Nodes.
 
-\subsection{Full Node}
+\subsubsection{Full Node}
 Eine Full Node benötigt von allen Nodetypen am meisten Speicherplatz, ist dafür aber die mächtigste und fasst alle Funktionen in 
 einer Node zusammen. Der distinkte Unterschied von der Full Node ist, dass diese die komplette Blockchain herunterlädt und
 verifiziert. Der benötigte Speicherplatz der Blockchain liegt bei 423GB (Stand: 25/8/2022).
@@ -32,7 +32,7 @@ installiert lediglich eine Wallet, eine Kopie der Block Header und stellt eine V
 und allein dafür ausgestattet, Transaktionen auf das eigene Konto zu empfangen und Geld zu versenden. (Vgl. Antonopoulos, 2017, S. 172f)
 
 
-\section{Die Blockchain}
+\subsection{Die Blockchain}
 Die Blockchain ist eine Datenstruktur, welche Transaktionen in miteinander verbundenen Blöcken speichert. Visualisieren kann man
 diese wie einen Turm von Blöcken. Der unterste Block dient als Fundament und die Anzahl der Blöcke bestimmt die Höhe. Ein neuer
 Block wird hinzugefügt, wenn ein Miner eine neue Lösung mit der SHA256 Hashfunktion gefunden hat. Der Miner kann dann aussuchen,
@@ -52,7 +52,7 @@ rückgängig gemacht werden, indem man in der einen Kette die Zahlung akzeptiert
 Zahlung weiterführt und verlängert. Ein Angriff dieser Art wird jedoch immer unwahrsheinlicher, da die Warscheinlichkeit für
 einen solchen Angriff exponentiell abfällt. (Vgl. Nakamoto, 2008, S. 8)
 
-\subsection{Struktur eines Blocks}
+\subsubsection{Struktur eines Blocks}
 Ein Block ist ein Behälter für eine Datenstruktur, welche für die Einschließung von Transaktionen in der Blockchain sorgt. Der
 Block besteht aus einem Header, welcher für die Identifizierung des Blocks notwendig ist, gefolgt von einer Liste aller 
 Transaktionen. Im Block Header befinden sich Informationen wie die derzeitige Schwierigkeit zur Lösung des Problems der Miner,
@@ -67,7 +67,7 @@ Header Hash, wodurch es keine doppelte Blöcke geben kann. Der erste Block (Gene
 000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f. (Vgl. Antonopoulos, 2017, S. 199)
 
 
-\subsection{Genesis-Block}
+\subsubsection{Genesis-Block}
 Der Genesis-Block ist der erste Block der Blockchain mit einer Höhe von 0. Anders als die darauffolgenden Blöcke gilt dieser als
 unveränderbar. Kreiert wurde dieser 2009 und wenn man jeden einzelnen Block auf der Blockchain zurückverfolgt, gelangt man
 schlussendlich an den Genesis-Block. Standardmäßig fügt jede Implementierung von Bitcoin den Genesis-Block schon bei der 

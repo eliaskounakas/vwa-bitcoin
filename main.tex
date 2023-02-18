@@ -1,12 +1,15 @@
-\documentclass[12pt]{report}
+\documentclass[12pt]{scrartcl}
 
 \usepackage[a4paper, left={3.5cm}, right={2cm}]{geometry}
 \usepackage{graphicx}
 \usepackage[T1]{fontenc}
 \usepackage{helvet}
-\usepackage[german]{babel}
+\usepackage[ngerman]{babel}
+\usepackage[round]{natbib}
+\usepackage{biblatex}
 \usepackage{amssymb}
 
+\addbibresource{literatur.bib}
 \linespread{1.25}
 
 \begin{document}
@@ -16,20 +19,28 @@
 \input{chapters/title-page.tex}
 \tableofcontents
 
-\chapter{Einleitung}
+\section{Einleitung}
 \input{chapters/introduction.tex}
 
-\chapter{Struktur des Bitcoin-Netzwerkes}
+\section{Struktur des Bitcoin-Netzwerkes}
 \input{chapters/structure.tex}
 
-\chapter{Adressen}
+\section{Adressen}
 \input{chapters/addresses.tex}
 
-\chapter{Transaktionen}
+\section{Transaktionen}
 \input{chapters/transactions.tex}
 
-\chapter{Kritikpunkte}
+\section{Probleme}
 \input{chapters/criticism.tex}
+
+\section{Fazit}
+\input{chapters/conclusion.tex}
+
+\section*{Literaturverzeichnis}
+\newpage
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\printbibliography
 
 
 \end{document}  
