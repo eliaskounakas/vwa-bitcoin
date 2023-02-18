@@ -21,7 +21,7 @@ Base58Check wiederum ist ein Codierungsformat von Base58, welches oft in Bitcoin
 Fehlerüberprüfungs-Code besitzt. Die Prüfsumme wird vom Hash der codierten Daten abgeleitet und kann deswegen genutzt werden, 
 um Tippfehler und andere Fehler zu erkennen. Wenn die Prüfsumme also nicht mit den codierten Daten übereinstimmt, gilt die
 eingegebene Bitcoin-Adresse als ungültig. Dies verhindert den Versand an falsche Bitcoin-Adressen und dadurch den Verlust
-von Geld. (Vgl. Antonopoulos, 2017, 67)
+von Geld. \skpcf[67]{anto}
 
 Die meisten Daten in Bitcoin werden Base58Check-codiert, was es einfacher macht, mit den Daten zu arbeiten. Zudem wird ein Präfix
 bei jeder Base58Check-Codierung genutzt, welche den Datentyp angibt, um welchen es sich handelt. Das ermöglicht dem Nutzer, schnell
@@ -41,14 +41,14 @@ wird, da jeder mit Zugriff auf den privaten Schlüssel Bitcoins ausgeben kann.
 
 Private Schlüssel werden als Abfolge von Zahlen und Buchstaben dargestellt. Genauer gesagt werden private Schlüssel durch ein
 bestimmtes Format wie das Base64 Zahlensystem codiert. Folgende Hexadezimalzahl zeigt, wie ein privater Schlüssel im 
-Normalfall aussieht: 8a708d03d461a5c5839b53da4c40912ca094cc0edee8574a62d6895d033db7ea. Diese Zahl entspricht einem Dezimalwert 
+Normalfall aussieht: \[8a708d03d461a5c5839b53da4c40912ca094cc0edee8574a62d6895d033db7ea\] Diese Zahl entspricht einem Dezimalwert 
 von ungefähr \( 6.2 * 10^{70} \). Generiert werden private Schlüssel mit verschiedenen Methoden wie beispielsweise ein 
 Zufallszahlengenerator. Gespeichert werden private Schlüssel im Normalfall auf einem Computer oder Smartphone in einer sicheren 
 Datei.
 
 \subsubsection{Private Schlüssel generieren}
 Prinzipiell sind private Schlüssel eine zufällige Zahl zwischen 1 und \( 2^{256} \) bzw. \( 1,15 * 10^{77} \). Um diese enorme Zahl
-zu relativisieren: die geschätzte Anzahl der Atome im sichtbaren Universum beträgt \( 10^{80} \). (Vgl. Antonopoulos, 2017, 59) Die Chance,
+zu relativisieren: die geschätzte Anzahl der Atome im sichtbaren Universum beträgt \( 10^{80} \). \skpcf[59]{anto} Die Chance,
 zwei mal denselben privaten Schlüssel zu generieren ist also extrem gering. Die einfachste Methode, um einen privaten Schlüssel
 zu generieren, ist der Munzwurf: Kopf und Zahl wird jeweils 0 und 1 zugewiesen. Danach muss die Münze 256 mal geworfen werden
 und man erhält eine 256-Bit lange Zahl. Prinzipiell kann man mit allem, was zufällig geschieht, einen privaten Schlüssel generieren.
@@ -61,7 +61,7 @@ Aufgrund des Kerchoff'schen Prinzips muss die Definition eines Zufallszahlengene
 dass selbst wenn jedes Detail über den Generator bekannt ist (Schaltplan, Algorithmen usw.), er immer noch vollständig unvorhersehbare 
 Bits erzeugen muss. Im Gegensatz zu PRNGs(Pseudorandom number generator) extrahieren physische (echte, Hardware) Zufallszahlengeneratoren 
 Zufälligkeit aus physischen Prozessen, die auf fundamental undeterministischer Weise verhalten, was sie zu besseren Kandidaten für die 
-Erzeugung von wahren Zufallszahlen macht. Physische Prozesse sind (Vgl. Stipčević, 2014, S. 5f):
+Erzeugung von wahren Zufallszahlen macht. Physische Prozesse sind \skpcf[5f]{mario}:
 \begin{itemize}
     \item Geräusche (Radiowellen, Atmosphärische)
     \item harmonische Oszillatoren
@@ -80,14 +80,14 @@ Frequenzverteilung des Rauschens gleichmäßig über einen breiten Frequenzberei
 Eine weitere Art des Rauschens ist das chaotische Rauschen das durch chaotische Systeme erzeugt wird. Chaotische Systeme sind Systeme, die sehr 
 empfindlich auf kleine Änderungen in den Anfangsbedingungen reagieren und dazu neigen, unvorhersehbare und zufällige Muster zu erzeugen. Ein Beispiel 
 für ein chaotisches System, das zur Erzeugung von Chaos-Noise verwendet werden kann, ist die Lorenz-Attraktor, die auf drei gekoppelten 
-Differentialgleichungen basiert und eine Art von chaotischem Verhalten erzeugt, das als \emph{Butterfly-Effekt} bekannt ist. (Vgl. Uwe Jönck und Florian Prill, 2003, S. 3ff)
+Differentialgleichungen basiert und eine Art von chaotischem Verhalten erzeugt, das als \emph{Butterfly-Effekt} bekannt ist. \skpcf[3ff]{jonck}
 
 Manche Arten von Rauschen (insbesondere Johnson-Rauschen) erzeugen sehr kleine Spannungen, die vor der Umwandlung in digitale Form stark verstärkt
 werden müssen. Die starke Verstärkung führt zu weiteren Abweichungen von der Zufälligkeit aufgrund der begrenzten Bandbreite und nicht-linearen 
 Verstärkung des Verstärkers. Außerdem kann schnelles elektrisches Schalten von binärer Logik, die in der RNG-Schaltung verwendet wird, starke 
 elektromagnetische Störungen verursachen, so dass mehrere RNGs in der Nähe (insbesondere auf einem Chip) tendenziell zur gegenseitigen 
 Synchronisierung neigen, was zu einem starken Rückgang der Gesamtentropie führt. Darüber hinaus können empfindliche Verstärker durch externe 
-elektromagnetische Felder leicht manipuliert werden, was für Kryptoangriffe ausgenutzt werden kann. (Vgl. Stipčević, 2014, S. 7)
+elektromagnetische Felder leicht manipuliert werden, was für Kryptoangriffe ausgenutzt werden kann. \skpcf[7]{mario}
 
 
 \subsection{Öffentliche Schlüssel}
@@ -99,8 +99,7 @@ Im Laufe der Geschichte wurden mehrere mathematische Funktionen entdeckt, die f�
 wie beispielsweise das Potenzieren von Primzahlen und die Multiplikation eines bestimmten Punktes auf einer elliptischen Kurve
 (diese Funktion wird auch von Bitcoin genutzt). Das besondere an diesen Funktionen ist, dass man sie nur in eine Richtung
 berechnen kann bzw. ist es sehr viel schwerer sie in die andere Richtung zu berechnen. Basierend auf diesen mathematischen
-Funktionen erlaubt die Kryptographie es, digitale Geheimnisse und nicht fälschbare Unterschriften zu kreieren. (Vgl. Antonopoulos
-, 2017, S. 62)
+Funktionen erlaubt die Kryptographie es, digitale Geheimnisse und nicht fälschbare Unterschriften zu kreieren. \skpcf[62]{anto}
 
 Zwischen dem privaten und öffentlichen Schlüssel gibt es eine mathematische Beziehung. Der öffentliche Schlüssel wird nämlich
 aus dem privaten Schlüssel mit der Multiplikation eines Punktes auf einer elliptischen Kurve generiert. Aus dieser mathematischen
@@ -122,7 +121,7 @@ des privaten Schlüssels wie folgt:
 k ist der private Schlüssel, G ist eine Konstante mit dem Namen ''Generator Point''und K ist der resultierende öffentliche 
 Schlüssel. In diese Richtung ist die Berechnung relativ simpel, in die andere jedoch fast unmöglich. Um den Wert von k 
 herauszufinden, wenn man K kennt, bleibt nichts anderes übrig als alle möglichen Werte für k einzusetzen, bis man auf den Wert 
-von K stößt. (Vgl. Antonopoulos, 2017, S. 65) Demnach nennt man Funktionen wie diese Einwegfunktionen.
+von K stößt. \skpcf[65]{anto} Demnach nennt man Funktionen wie diese Einwegfunktionen.
 
 
 

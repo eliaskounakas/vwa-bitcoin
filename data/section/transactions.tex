@@ -10,9 +10,8 @@ Bitcoin-Transaktion durchführt.
 Eine Wallet besteht aus Software, die private und öffentliche Schlüssel enthält und die Blockchain nutzt, um Währung zu senden
 und zu empfangen. Die Währung in diesen Wallets wird in Form von Coins, wie beispielsweise Bitcoin, hinzugefügt. Um Coins oder
 Währung empfangen oder senden zu können, muss eine Wallet erstellt werden. Die Währung selbst ist nicht an einem Ort in der Wallet
-gespeichert, sondern befindet sich in der Form von Transaktionsaufzeichnungen in der Blockchain. (Vgl. Yadav, Kuri und Goar,
-2020, S. 4) Demnach enthält die Wallet lediglich die Informationen (Schlüssel), um Währung auszugeben, nicht aber die Währung
-selbst.
+gespeichert, sondern befindet sich in der Form von Transaktionsaufzeichnungen in der Blockchain. \skpcf[4]{yadav} Demnach enthält 
+die Wallet lediglich die Informationen (Schlüssel), um Währung auszugeben, nicht aber die Währungselbst.
 
 Es gibt zwei primäre Arten von Wallets, welche sich darin unterscheiden, ob die enthaltenen Schlüssel zusammenhängend sind oder
 nicht. Die erste Art einer Wallet ist die nichtdeterministische Wallet, bei welcher jeder Schlüssel unabhängig von einer 
@@ -21,7 +20,7 @@ deterministische Wallet, bei welcher alle Schlüssel Derivate von einem Mastersc
 Alle Schlüssel in dieser Art von Wallet sind zusammenhängend und können neu generiert werden, solange man den originalen Samen
 beziehungsweise den Masterschlüssel hat. Es gibt mehrere Methoden zur Derivation von Schlüsseln, welche in deterministischen
 Wallets genutzt werden. Die am häufigsten genutzte Derivationsmethode nutzt eine baumähnliche Struktur und wird als 
-hierarchische deterministische (HD) Wallet bezeichnet. (Vgl. Antonopoulos, 2017, S. 93f)
+hierarchische deterministische (HD) Wallet bezeichnet. \skpcf[93f]{anto}
 
 \subsubsection{Deterministische Wallets}
 Deterministische Wallets beinhalten private Schlüssel, welche alle von einem gemeinsamen Samen abstammen. Die privaten Schlüssel
@@ -31,7 +30,7 @@ Schlüssel generiert. Im Gegensatz zu der nichtdeterministischen Wallet benötig
 allein den Samen, um auf alle Schlüssel zugreifen zu können, da diese alle vom Samen abstammen. Aus diesem Grunde benötigt man
 nur ein einziges Backup, welches bei der Erstellung der Wallet gespeichert wird. Vorteilhaft ist dabei auch die Mobilität der
 Wallet: Man muss einzig und allein den Samen auf die neue Wallet-Umgebung transferieren, um wieder Zugriff auf alle Schlüssel
-zu haben. (Vgl. Antonopoulos, 2017, S. 95)
+zu haben. \skpcf[95]{anto}
 
 Im BIP-32 standard wurde die häufigste Art der deterministischen Wallets implementiert: die hierarchische deterministische Wallet.
 HD Wallets enthalten Schlüssel, die in einer Baumstruktur angeordnet sind. Ein Schlüssel kann Töchterschlüssel generieren, von 
@@ -40,7 +39,7 @@ hat die HD Wallet noch zwei weitere Vorteile gegenüber nichtdeterministischen W
 Schlüsseln genutzt werden, um ihnen organisatorische Bedeutung zu verleihen. Beispielsweise kann ein Ast von Schlüsseln genutzt
 werden, um Zahlungen zu senden und ein andere Ast von Schlüsseln erhält dann das Wechselgeld. Zweitens können Nutzer von HD
 Wallets eine Reihe von öffentlichen Schlüsseln generieren, ohne Zugriff auf die zugehörigen privaten Schlüssel zu haben. Dadurch 
-können die Schlüssel auf unsicheren Servern genutzt. (Vgl. Antonopoulos, 2017, S. 96)
+können die Schlüssel auf unsicheren Servern genutzt. \skpcf[96]{anto}
 
 
 \subsubsection{Nichtdeterministische Wallets}
@@ -60,7 +59,7 @@ Summen nicht in kleinere Summen aufgeteilt werden können, d.h., dass es im Norm
 den Sender zurückgezahlt wird, ähnlich wie beim Wechselgeld im Falle normaler Währung. Sobald Bob die TXO beziehungsweise 
 die Summen seiner verwendbaren Bitcoins erhält, bezeichnet man sie als unausgegebene Transaktionausgänge (UTXO). Sie bleiben
 UTXOs, bis der Besitzer (in diesem Beispiel Bob) sie einlöst, um jemand anderen zu bezahlen (in diesem Fall werden sie wieder
-als ausgegebene TXOs bezeichnet). (Vgl. Konrad und Pinto, 2015, S. 1) Vor jeder Transaktion befindet sich eine vier-byte lange
+als ausgegebene TXOs bezeichnet). \skpcf[1]{pinto} Vor jeder Transaktion befindet sich eine vier-byte lange
 Transaktionsversionnummer, welche anderen Peers und Minern sagt, mit welchen Regeln diese Transaktion bestätigt werden soll.
 UTXOs haben eine Indexnummer basierend auf ihrer Lage in der Transaktion. Wenn ein beliebiger Bitcoin (oder nur ein Anteil)
 zum ersten mal versendet wird, nachdem dieser gemined wurde, hat die zugehörige Transaktion eine Indexnummer von 0. Im Gegensatz
@@ -77,7 +76,7 @@ und die Bedeutung von Transaktionsgebühren bei der Prozessierungspriorität. Zu
 Wert und waren konstant. Die Gebührenregeln lockerten sich jedoch immer mehr und erlaubten es, dass Marktkräfte den
 Gebührenpreis durch Kapazität des Bitcoin-Netzwerkes und Transaktionsvolumen bestimmten. 2016 explodierte Bitcoin an Popularität,
 wodurch das Kapazitätslimit erreicht wurde und die Transaktionsgebührenpreise in die Höhe schossen; Transaktionen ohne
-Transaktionsgebühren sind dadurch Geschichte gewesen. (Vgl. Antonopoulos, 2017, S. 127)
+Transaktionsgebühren sind dadurch Geschichte gewesen. \skpcf[127]{anto}
 
 \subsection{Transaktionenskripts}
 Bitcoin nutzt eine eigene Stapel-basierte Skriptsprache mit einer Reihe von Opcodes. Diese Skriptsprache, welche auch ganz 
@@ -86,8 +85,8 @@ werden kann, oder nicht. Wenn Bitcoin versendet wird,
 dann wird lediglich ein Bitcoinwert zu einem Skript zugewiesen, welcher nur ausgegeben kann, wenn der Skript erfolgreich
 ausgeführt wird und ein einziger ''true'' Wert auf dem Stapel entsteht. Den Skript, welcher dem UTXO zugewiesen ist, nennt man
 ''scriptPubKey''. Um die Bedingungen des Skriptes zu erfüllen, muss man eine korrekte ''scriptSig'' zur Verfügung stellen,
-welche auch ein Skript ist und ausgeführt wird, um zu testen, ob der Versand von Bitcoin funktioniert hat. (Vgl. Baczuk, 2019,
-S. 1) Skript ist eine sehr einfach Sprache, welche dazu gemacht wurde, nicht viele Möglichkeiten zu bieten und auf fast jedem
+welche auch ein Skript ist und ausgeführt wird, um zu testen, ob der Versand von Bitcoin funktioniert hat. \skpcf[1ff]{jordan} 
+Skript ist eine sehr einfach Sprache, welche dazu gemacht wurde, nicht viele Möglichkeiten zu bieten und auf fast jedem
 Gerät ausführbar ist, wie zum Beispiel einem eingebetteten System. Die Sprache benötigt minimale Prozessorkraft und kann nicht 
 viele der schicken Dinge tun, die moderne Programmiersprachen können. Zweck ist, dass eine Sprache, die nicht viele Möglichkeiten
 bietet, sich einfach überprüfen lässt und sehr robust gegen Bugs o.Ä. ist, was sie zu einem perfekten Kandidaten für die 
@@ -106,7 +105,7 @@ Bedingte Operatoren prüfen eine Bedingung und geben boolean Wert von TRUE oder 
 Objekte vom Stapel herunternehmen und legt TRUE (wird in Script als 1 dargestellt) zurück hinauf, wenn die Elemente denselben
 Wert haben und FALSE (wird in Script als 0 dargestellt), wenn die Elemente nicht denselben Wert haben. Im Normalfall haben
 Bitcoin-Transaktions-Skripts einen bedingten Operator, um die Gültigkeit der Transaktion als gültig beziehungsweise TRUE oder
-ungültig beziehungsweise FALSE zu bestimmen.  (Vgl. Antonopoulos, 2017, S. 133s)
+ungültig beziehungsweise FALSE zu bestimmen. \skpcf[133]{anto}
 
 Im ursprünglichen Bitcoin Client (heute Bitcoin Core) waren der ''scriptPubKey'' beziehungsweise der Ausgabeskript und der 
 ''scriptSig'' beziehungsweise der Eingabeskript miteinander verkettet und in einer Sequenz ausgeführt worden. Aus 

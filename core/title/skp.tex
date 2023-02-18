@@ -1,0 +1,62 @@
+\newcommand{\Title}{}
+\newcommand{\Author}{}
+\newcommand{\Class}{}
+\newcommand{\Teacher}{}
+\newcommand{\Date}{}
+\newcommand{\Email}{}
+
+\newcommand{\setTitle}[1]{
+    \title{#1}
+    \renewcommand{\Title}{#1}
+}
+\newcommand{\setAuthor}[1]{
+    \author{#1}
+    \renewcommand{\Author}{#1}
+}
+\newcommand{\setClass}[2]{
+    \renewcommand{\Class}{#1 \quad #2}
+}
+\newcommand{\setTeacher}[1]{
+    \renewcommand{\Teacher}{#1}
+}
+\newcommand{\setDate}[3]{
+    \renewcommand{\Date}{#1.\,#2.\ #3}
+}
+\newcommand{\setEmail}[1]{
+    \renewcommand{\Email}{mailto:#1}
+}
+
+\newcommand*{\skptitle}{
+    \newgeometry{left=20mm,bottom=2cm,right=20mm,top=2cm}
+    \begin{titlepage}
+        \begin{center}
+          \vspace*{-4cm}
+          Vorwissenschaftliche Arbeit
+          \vspace{1cm}
+      
+          \rule{440pt}{0.1pt}\\
+          \vspace{0.5cm}
+          \textbf{\Huge Blockchain-Technologie in Bezug auf Bitcoin}\\
+          \rule{440pt}{0.1pt}
+      
+          \large
+          \vspace{2cm}
+          Elias Kounakas\\
+          8B
+          \vspace{2cm}
+      
+          \includegraphics{data/figures/mossinger-logo.png}
+      
+          \vspace{2cm}
+          BG|BRG Mössinger\\
+          9020 Klagenfurt am Wörthersee
+          \vspace{2cm}
+      
+          \vfill
+          Betreuer: Mag. Franz Furtschegger\\
+          Abgabedatum: TT.MM.JJ
+          \end{center}
+      \end{titlepage}
+    \stepcounter{page}
+    \restoregeometry
+}

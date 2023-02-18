@@ -7,7 +7,7 @@ weiterleiten und verifizieren. Das Bitcoin-Netzwerk ist demnach die Gesamtheit a
 Was passiert aber, wenn eine Node für bösartige Zwecke falsche Informationen an andere Nodes verschickt? Dafür hat man ein
 Vertrauens-System im Bitcoin-Netzwerk implementiert. Bevor eine Node empfangene Informationen abspeichert, prüft sie diese
 auf Korrektheit in Bezug auf den derzeitigen Standard. Dieser Standard wird im BIP (Bitcoin Improvement Proposal) festgelegt,
-welcher periodisch immer neue Richtlinien festlegt. (Vgl. Dashjr, 2011) Natürlich hat das BIP keine Macht über die Nodes, diese können nämlich
+welcher periodisch immer neue Richtlinien festlegt. \skpcf[1]{taaki} Natürlich hat das BIP keine Macht über die Nodes, diese können nämlich
 selber entscheiden, ob sie nun nach den neuen Richtlinien arbeiten wollen oder nicht. Jedoch übernehmen die meisten Nodes mit
 einem kurzen Update den neuen Standard, da dieser lediglich für das Interesse der Teilnehmer entwickelt wird.
 
@@ -29,7 +29,7 @@ profitieren vor allem von modernen GPUs, welche hunderte Millionen Hashes pro Se
 
 Die wahrscheinlich beste Node fÍür den Otto Normalverbraucher ist der SPV Client (Simplified Payment Verification Client). Dieser
 installiert lediglich eine Wallet, eine Kopie der Block Header und stellt eine Verbindung zum Bitcoin-Netzwerk her. Er ist einzig
-und allein dafür ausgestattet, Transaktionen auf das eigene Konto zu empfangen und Geld zu versenden. (Vgl. Antonopoulos, 2017, S. 172f)
+und allein dafür ausgestattet, Transaktionen auf das eigene Konto zu empfangen und Geld zu versenden. \skpcf[172f]{anto}
 
 
 \subsection{Die Blockchain}
@@ -50,7 +50,7 @@ in Besitz von mehr als 50\% der Mining-Kraft kommt, kann man zwei schwerwiegende
 komplett lahmgelegt werden, indem keine neuen Transaktionen in den Blöcken inkludiert werden. Zum anderen können Zahlungen
 rückgängig gemacht werden, indem man in der einen Kette die Zahlung akzeptiert hat, dann jedoch eine andere Kette ohne diese 
 Zahlung weiterführt und verlängert. Ein Angriff dieser Art wird jedoch immer unwahrsheinlicher, da die Warscheinlichkeit für
-einen solchen Angriff exponentiell abfällt. (Vgl. Nakamoto, 2008, S. 8)
+einen solchen Angriff exponentiell abfällt. \skpcf[8]{anto}
 
 \subsubsection{Struktur eines Blocks}
 Ein Block ist ein Behälter für eine Datenstruktur, welche für die Einschließung von Transaktionen in der Blockchain sorgt. Der
@@ -64,8 +64,7 @@ dass zwei Miner gleichzeitig einen Block finden, scheitert die Identifizierung e
 Header Hash zu berechnen, wird der Block Header (Schwierigkeit, Zeitstempel, Zusatzzahl) zwei mal mit dem SHA256 Algorithmus 
 gehashed. Hierbei kommt ein 32-byte Hash heraus, welcher mit vielen Nullstellen beginnt. Jeder Block hat einen distinkten Block
 Header Hash, wodurch es keine doppelte Blöcke geben kann. Der erste Block (Genesis-Block) der Blockchain hat einen Hashwert von
-000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f. (Vgl. Antonopoulos, 2017, S. 199)
-
+000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f. \skpcf[199]{anto}
 
 \subsubsection{Genesis-Block}
 Der Genesis-Block ist der erste Block der Blockchain mit einer Höhe von 0. Anders als die darauffolgenden Blöcke gilt dieser als

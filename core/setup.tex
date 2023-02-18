@@ -1,0 +1,29 @@
+\KOMAoptions{paper=a4, fontsize=12pt, DIV=calc}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[british, ngerman]{babel}
+\usepackage[babel,german=quotes]{csquotes}
+\usepackage[hidelinks]{hyperref}
+\usepackage{chngcntr}
+\usepackage[pdftex]{graphicx}
+\usepackage[pass]{geometry}
+
+\counterwithout{figure}{section}
+\counterwithout{equation}{section}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\addto{\captionsngerman}{\renewcommand{\abstractname}{Abstract}}
+
+\newenvironment{abstractpage}
+  {\clearpage\vspace*{\fill}\thispagestyle{plain}
+  }
+  {\vfill\clearpage}
+\newenvironment{mlabstract}[1]
+  {\bigskip\selectlanguage{#1}%
+   \begin{center}\bfseries\abstractname\end{center}}
+  {\par\bigskip}
+
+\newcommand{\name}{\textsc}

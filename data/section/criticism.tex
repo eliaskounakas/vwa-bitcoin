@@ -5,7 +5,7 @@ Intervall von 10 Minuten, um Transaktionen zu bestätigen, schafft es Bitcoin au
 pro Sekunde zu kommen. Um dies in Vergleich zu stellen, bei einer herkömmlichen Zahlungsmethode wie zum Beispiel VISA werden
 Transaktion innherhalb von Sekunden bestätigt. Zudem liegt der Transaktionsdurchsatz von VISA bei über 2000 Transaktionen pro
 Sekunde. Offensichtlicherweise existiert eine riesige Lücke zwischen dem Stand, auf welchem Bitcoin sich befinden und
-herkömmlichen Zahlungsmethoden. (Vgl. Croman et al., 2016, S. 1) Weiters ist die Zeit, die eine neue Full Node benötigt, um die gesamte 
+herkömmlichen Zahlungsmethoden. \skpcf[1]{croman} Weiters ist die Zeit, die eine neue Full Node benötigt, um die gesamte 
 Blockchain herunterzuladen enorm. Die derzeitige Größe der Bitcoin-Blockchain beträgt 425 Gigabyte, während die
 durchschnittliche Internetgeschwindigkeit bei etwa 30Mbps liegt. Folgend ist die benötigte Zeit \(\frac{425000}{3.75} = 113333\)
 Sekunden beziehungsweise 31.5 Stunden. Für die meisten Nutzer ist es daher undenkbar, eine Full Node zu betreiben, obwohl Bitcoin
@@ -21,7 +21,7 @@ werden, um die Konsensregeln zu ändern, erfordern jedoch eine Koordination zwis
 die nicht auf die neuen Konsensregeln aktualisieren, können nicht am Konsensmechanismus teilnehmen und werden zum Zeitpunkt des
 Hard Forks auf eine separate Kette gezwungen. Eine Änderung, die durch einen Hard Fork eingeführt wird, kann also als nicht
 ''vorwärtskompatibel'' betrachtet werden, da nicht aktualisierte Systeme die neuen Konsensregeln nicht mehr verarbeiten können.
-(Vgl. Antonopoulos, 2017, S. 257)
+\skpcf[257]{anto}
 
 Nicht alle Änderungen der Konsensregeln führen zu einem Hard Fork. Nur Konsensänderung, die nicht vorwärtskompatibel sind,
 verursachen einen Fork. Wenn die Änderung so implementiert wird, dass ein unveränderter Client die Transaktion oder den
@@ -30,8 +30,7 @@ Block weiterhin als gültig gemäß den vorherigen Regeln betrachtet, kann die �
 Fork überhaupt kein Fork. Ein Soft Fork ist eine vorwärtskompatible Änderung der Konsensregeln, die es nicht aktualisieren
 Clients weiterhin ermöglicht, im Konsens mit den neuen Regeln zu arbeiten. Soft Forks können auf verschiedene Arten implementiert
 werden - der Begriff definiert keine spezifische Methode, sondern eine Reihe von Methoden, die alle eines gemeinsam haben: Sie
-erfordern nicht, dass alle Nodes aktualisiert werden oder zwingen nicht aktualisierte Nodes aus dem Konsens. (Vgl. Antonopoulos,
-2017, S. 261)
+erfordern nicht, dass alle Nodes aktualisiert werden oder zwingen nicht aktualisierte Nodes aus dem Konsens. \skpcf[261]{anto}
 
 \subsection{Verluste}
 Kritiker betonen oft die fehlende physikalische Form von Bitcoin, und das zurecht. Bitcoins können nur in der digitalen Welt
@@ -46,7 +45,7 @@ Bitcoin ist derzeit so konzipiert, dass es in Einheiten names Satoshis unterteil
 entsprechen. Die Tatsache, dass Bitcoins so teilbar sind, soll bedeuten, dass aufrund der asymptotischen Grenze von 21
 Millionen Bitcoins * 100.000.000 Satoshis pro Bitcoin insgesamt 2.100.000.000.000.000 (2,1 Billiarden) Satoshis möglich sind.
 Dadurch kann Bitcoin eine lebensfähige globale Währung sein, die praktisch jede Art von Expansion im Maßstab von Nationen 
-unterstützen kann. (Vgl. Hanley, 2013, S. 7)
+unterstützen kann. \skpcf[7]{hanley}
 Hier tritt das Problem der Verluste in einer neuen Form auf: Wenn Wallets verloren gehen, dann sind auch die 
 darauf enthaltenen Bitcoins für immer aus dem Bitcoin-Netzwerk verloren. Die einzige Methode, mit welcher man die Bitcoins
 zurückholen könnte, ist alle Private-Schlüssel-Kombinationen auszuprobieren, bis man auf eine Wallet stoßt, auf welcher Bitcoins
