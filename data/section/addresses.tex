@@ -15,10 +15,11 @@ Zusätzlich nutzt Base64 die 10 Ziffern 0-9 und die Symbole + sowie /.
 
 Base58 hingegen ist eine Ableitung von Base64, welche ähnlich aussehende Symbole vermeidet, da sie in manchen Schriftarten
 identisch aussehen können. Diese Symbole sind die Zahl null, der Buchstabe O (großes o), l (kleines L), I (großes i), das 
-Zeichen + und /. Das vollständige Alphabet von Base58 ist: \[123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz\]
+Zeichen + und /. Das vollständige Alphabet von Base58 ist: \[123456789ABCDEFGHJKLMNPQRSTUVWX
++ YZabcdefghijkmnopqrstuvwxyz\]
 
 Base58Check wiederum ist ein Codierungsformat von Base58, welches oft in Bitcoin genutzt wird und einen eingebauten
-Fehlerüberprüfungs-Code besitzt. Die Prüfsumme wird vom Hash der codierten Daten abgeleitet und kann deswegen genutzt werden, 
+Fehlerüberprüfungscode besitzt. Die Prüfsumme wird vom Hash der codierten Daten abgeleitet und kann deswegen genutzt werden, 
 um Tippfehler und andere Fehler zu erkennen. Wenn die Prüfsumme also nicht mit den codierten Daten übereinstimmt, gilt die
 eingegebene Bitcoin-Adresse als ungültig. Dies verhindert den Versand an falsche Bitcoin-Adressen und dadurch den Verlust
 von Geld. \skpcf[67]{anto}
@@ -30,13 +31,13 @@ umgewandelt auf Base58 1 ergibt. Private Schlüssel wiederum haben den Präfix 0
 
 \subsection{Private Schlüssel}
 Im Bitcoin-Netzwerk ist der private Schlüssel eine geheime Zahl, die genutzt wird, um Bitcoin-Ausgaben ausgehend von einer 
-bestimmten Bitcoin-Adresse zu authorisieren. Der private Schlüssel ist eine kritische Komponente der kryptographischen Sicherheit,
+bestimmten Bitcoin-Adresse zu autorisieren. Der private Schlüssel ist eine kritische Komponente der kryptographischen Sicherheit,
 auf welche das Bitcoin-Netzwertk aufbaut. Genutzt wird der private Schlüssel, um Authentizität bei Transaktionen zu beweisen und
 versichert dabei, dass die Transaktionen nicht verändert oder gefälscht sind.
 
 Meist sind private Schlüssel in einer sogenannten Wallet, eine Applikation, welche dem Nutzer ermöglicht, Transaktionen zu tätigen,
 gespeichert. Jede Wallet hat einen einzigartigen privaten Schlüssel, welche für Unterschriften bei Transaktionen genutzt wird und
-den Besitz der jeweiligen Bitcoins beweist. Es ist essentiell, dass der private Schlüssel geschützt ist und mit niemanden geteilt
+den Besitz der jeweiligen Bitcoins beweist. Es ist essenziell, dass der private Schlüssel geschützt ist und mit niemanden geteilt
 wird, da jeder mit Zugriff auf den privaten Schlüssel Bitcoins ausgeben kann.
 
 Private Schlüssel werden als Abfolge von Zahlen und Buchstaben dargestellt. Genauer gesagt werden private Schlüssel durch ein
@@ -49,8 +50,8 @@ Datei.
 \subsubsection{Private Schlüssel generieren}
 Prinzipiell sind private Schlüssel eine zufällige Zahl zwischen 1 und \( 2^{256} \) bzw. \( 1,15 * 10^{77} \). Um diese enorme Zahl
 zu relativisieren: die geschätzte Anzahl der Atome im sichtbaren Universum beträgt \( 10^{80} \). \skpcf[59]{anto} Die Chance,
-zwei mal denselben privaten Schlüssel zu generieren ist also extrem gering. Die einfachste Methode, um einen privaten Schlüssel
-zu generieren, ist der Munzwurf: Kopf und Zahl wird jeweils 0 und 1 zugewiesen. Danach muss die Münze 256 mal geworfen werden
+zweimal denselben privaten Schlüssel zu generieren, ist also extrem gering. Die einfachste Methode, um einen privaten Schlüssel
+zu generieren, ist der Münzwurf: Kopf und Zahl wird jeweils 0 und 1 zugewiesen. Danach muss die Münze 256-mal geworfen werden
 und man erhält eine 256-Bit lange Zahl. Prinzipiell kann man mit allem, was zufällig geschieht, einen privaten Schlüssel generieren.
 Natürlich möchte man nicht für jeden privaten Schlüssel 256 Münzwürfe machen, deswegen werden hierfür Rechner genutzt. Ein großes
 Problem in der Computerwelt ist es jedoch, zufällige Zahlen erzeugen zu können. Computer sind schlicht und ergreifend nicht dazu 
@@ -59,7 +60,7 @@ geeignet, Zufälle generieren zu können.
 \subsubsection{Natürliche Zufallsquellen}
 Aufgrund des Kerchoff'schen Prinzips muss die Definition eines Zufallszahlengenerators, der für Kryptografie geeignet ist, beinhalten, 
 dass selbst wenn jedes Detail über den Generator bekannt ist (Schaltplan, Algorithmen usw.), er immer noch vollständig unvorhersehbare 
-Bits erzeugen muss. Im Gegensatz zu PRNGs(Pseudorandom number generator) extrahieren physische (echte, Hardware) Zufallszahlengeneratoren 
+Bits erzeugen muss. Im Gegensatz zu PRNGs(Pseudorandom number generator) extrahieren physische (echte Hardware) Zufallszahlengeneratoren 
 Zufälligkeit aus physischen Prozessen, die auf fundamental undeterministischer Weise verhalten, was sie zu besseren Kandidaten für die 
 Erzeugung von wahren Zufallszahlen macht. Physische Prozesse sind \skpcf[5f]{mario}:
 \begin{itemize}
@@ -73,19 +74,19 @@ Wärmerauschen ist eine Art von Rauschen, das in elektrischen Schaltungen auftri
 (normalerweise Elektronen) in elektrischen Leitern verursacht wird. Die thermische Bewegung der Ladungsträger in einem elektrischen Leiter führt 
 zu Schwankungen im Stromfluss, die als Rauschen interpretiert werden können. Dieses Rauschen ist proportional zur Temperatur des Leiters und der 
 elektrischen Leitfähigkeit des Materials. Es ist auch unabhängig von der Art des Leiters und tritt in allen elektrischen Leitern auf, 
-einschließlich Metallen, Halbleitern und sogar Isolatoren.Das Johnson-Nyquist-Rauschen ist ein weißes Rauschen, das bedeutet, dass die 
+einschließlich Metallen, Halbleitern und sogar Isolatoren. Das Johnson-Nyquist-Rauschen ist ein weißes Rauschen, das bedeutet, dass die 
 Frequenzverteilung des Rauschens gleichmäßig über einen breiten Frequenzbereich verteilt ist. Es hat auch eine bestimmte Spectral Density 
 (Leistung pro Frequenzband) die proportional zur Temperatur und der elektrischen Leitfähigkeit des Leiters ist.
 
-Eine weitere Art des Rauschens ist das chaotische Rauschen das durch chaotische Systeme erzeugt wird. Chaotische Systeme sind Systeme, die sehr 
+Eine weitere Art des Rauschens ist das chaotische Rauschen, das durch chaotische Systeme erzeugt wird. Chaotische Systeme sind Systeme, die sehr 
 empfindlich auf kleine Änderungen in den Anfangsbedingungen reagieren und dazu neigen, unvorhersehbare und zufällige Muster zu erzeugen. Ein Beispiel 
-für ein chaotisches System, das zur Erzeugung von Chaos-Noise verwendet werden kann, ist die Lorenz-Attraktor, die auf drei gekoppelten 
-Differentialgleichungen basiert und eine Art von chaotischem Verhalten erzeugt, das als \emph{Butterfly-Effekt} bekannt ist. \skpcf[3ff]{jonck}
+für ein chaotisches System, das zur Erzeugung von Chaos-Noise verwendet werden kann, ist der Lorenz-Attraktor, die auf drei gekoppelten 
+Differenzialgleichungen basiert und eine Art von chaotischem Verhalten erzeugt, das als Butterfly-Effekt bekannt ist. \skpcf[3ff]{jonck}
 
 Manche Arten von Rauschen (insbesondere Johnson-Rauschen) erzeugen sehr kleine Spannungen, die vor der Umwandlung in digitale Form stark verstärkt
 werden müssen. Die starke Verstärkung führt zu weiteren Abweichungen von der Zufälligkeit aufgrund der begrenzten Bandbreite und nicht-linearen 
 Verstärkung des Verstärkers. Außerdem kann schnelles elektrisches Schalten von binärer Logik, die in der RNG-Schaltung verwendet wird, starke 
-elektromagnetische Störungen verursachen, so dass mehrere RNGs in der Nähe (insbesondere auf einem Chip) tendenziell zur gegenseitigen 
+elektromagnetische Störungen verursachen, sodass mehrere RNGs in der Nähe (insbesondere auf einem Chip) tendenziell zur gegenseitigen 
 Synchronisierung neigen, was zu einem starken Rückgang der Gesamtentropie führt. Darüber hinaus können empfindliche Verstärker durch externe 
 elektromagnetische Felder leicht manipuliert werden, was für Kryptoangriffe ausgenutzt werden kann. \skpcf[7]{mario}
 
@@ -98,7 +99,7 @@ Cybersecurity.
 Im Laufe der Geschichte wurden mehrere mathematische Funktionen entdeckt, die für Public-Key-Kryptosysteme verwendet werden können
 wie beispielsweise das Potenzieren von Primzahlen und die Multiplikation eines bestimmten Punktes auf einer elliptischen Kurve
 (diese Funktion wird auch von Bitcoin genutzt). Das besondere an diesen Funktionen ist, dass man sie nur in eine Richtung
-berechnen kann bzw. ist es sehr viel schwerer sie in die andere Richtung zu berechnen. Basierend auf diesen mathematischen
+berechnen kann bzw. ist es sehr viel schwerer, sie in die andere Richtung zu berechnen. Basierend auf diesen mathematischen
 Funktionen erlaubt die Kryptographie es, digitale Geheimnisse und nicht fälschbare Unterschriften zu kreieren. \skpcf[62]{anto}
 
 Zwischen dem privaten und öffentlichen Schlüssel gibt es eine mathematische Beziehung. Der öffentliche Schlüssel wird nämlich
@@ -120,7 +121,7 @@ des privaten Schlüssels wie folgt:
 
 k ist der private Schlüssel, G ist eine Konstante mit dem Namen ''Generator Point''und K ist der resultierende öffentliche 
 Schlüssel. In diese Richtung ist die Berechnung relativ simpel, in die andere jedoch fast unmöglich. Um den Wert von k 
-herauszufinden, wenn man K kennt, bleibt nichts anderes übrig als alle möglichen Werte für k einzusetzen, bis man auf den Wert 
+herauszufinden, wenn man K kennt, bleibt nichts anderes übrig, als alle möglichen Werte für k einzusetzen, bis man auf den Wert 
 von K stößt. \skpcf[65]{anto} Demnach nennt man Funktionen wie diese Einwegfunktionen.
 
 

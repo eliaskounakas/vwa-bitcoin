@@ -2,7 +2,7 @@ Bitcoin-Transaktionen sind Aufzeichnungen über Übertragungen von Bitcoins von 
 Bitcoin-Transaktion besteht aus mindestens einer Eingabe- und einer Ausgabeadresse. Die Eingabe-Adresse stellt die Bitcoins
 bereit, die übertragen werden sollen, und die Ausgabe-Adressen empfangen die übertragenen Bitcoins. Eine Bitcoin-Transaktion
 kann auch eine Gebühr beinhalten, die an die Miner gezahlt wird, die die Transaktion bestätigen und in die Blockchain aufnehmen.
-Es ist wichtig, zu beachten, dass Bitcoin-Transaktionen irreversibel sind, d.h. sie können nicht rückgängig gemacht werden,
+Es ist wichtig zu beachten, dass Bitcoin-Transaktionen irreversibel sind, d.h. sie können nicht rückgängig gemacht werden,
 nachdem sie einmal bestätigt wurden. Daher sollte man sorgfältig darauf achten, an die richtige Adresse zu senden, bevor man eine
 Bitcoin-Transaktion durchführt.
 
@@ -11,7 +11,7 @@ Eine Wallet besteht aus Software, die private und öffentliche Schlüssel enthä
 und zu empfangen. Die Währung in diesen Wallets wird in Form von Coins, wie beispielsweise Bitcoin, hinzugefügt. Um Coins oder
 Währung empfangen oder senden zu können, muss eine Wallet erstellt werden. Die Währung selbst ist nicht an einem Ort in der Wallet
 gespeichert, sondern befindet sich in der Form von Transaktionsaufzeichnungen in der Blockchain. \skpcf[4]{yadav} Demnach enthält 
-die Wallet lediglich die Informationen (Schlüssel), um Währung auszugeben, nicht aber die Währungselbst.
+die Wallet lediglich die Informationen (Schlüssel), um Währung auszugeben, nicht aber die Währung selbst.
 
 Es gibt zwei primäre Arten von Wallets, welche sich darin unterscheiden, ob die enthaltenen Schlüssel zusammenhängend sind oder
 nicht. Die erste Art einer Wallet ist die nichtdeterministische Wallet, bei welcher jeder Schlüssel unabhängig von einer 
@@ -25,16 +25,16 @@ hierarchische deterministische (HD) Wallet bezeichnet. \skpcf[93f]{anto}
 \subsubsection{Deterministische Wallets}
 Deterministische Wallets beinhalten private Schlüssel, welche alle von einem gemeinsamen Samen abstammen. Die privaten Schlüssel
 werden vom Samen durch Einwegfunktionen beziehungsweise Hashfunktionken berechnet. Der Samen ist eine zufällig generierte Zahl,
-welche mit anderen Daten wie zum Beispiel einer Index Nummer kombiniert wird, um dann mittels einer Hashfunktion einen privaten
+welche mit anderen Daten wie zum Beispiel einer Indexnummer kombiniert wird, um dann mittels einer Hashfunktion einen privaten
 Schlüssel generiert. Im Gegensatz zu der nichtdeterministischen Wallet benötigt man bei der deterministischen Wallet einzig und 
 allein den Samen, um auf alle Schlüssel zugreifen zu können, da diese alle vom Samen abstammen. Aus diesem Grunde benötigt man
 nur ein einziges Backup, welches bei der Erstellung der Wallet gespeichert wird. Vorteilhaft ist dabei auch die Mobilität der
 Wallet: Man muss einzig und allein den Samen auf die neue Wallet-Umgebung transferieren, um wieder Zugriff auf alle Schlüssel
 zu haben. \skpcf[95]{anto}
 
-Im BIP-32 standard wurde die häufigste Art der deterministischen Wallets implementiert: die hierarchische deterministische Wallet.
+Im BIP-32 Standard wurde die häufigste Art der deterministischen Wallets implementiert: die hierarchische deterministische Wallet.
 HD Wallets enthalten Schlüssel, die in einer Baumstruktur angeordnet sind. Ein Schlüssel kann Töchterschlüssel generieren, von 
-welchen wiederum Enkelschlüssel generiert werden können, und so weiter, bis in die Unendlichkeit. Abgesehen von der Mobilität
+welchen wiederum Enkelschlüssel generiert werden können, und so weiter bis in die Unendlichkeit. Abgesehen von der Mobilität
 hat die HD Wallet noch zwei weitere Vorteile gegenüber nichtdeterministischen Wallets. Erstens können bestimmte Äste von
 Schlüsseln genutzt werden, um ihnen organisatorische Bedeutung zu verleihen. Beispielsweise kann ein Ast von Schlüsseln genutzt
 werden, um Zahlungen zu senden und ein andere Ast von Schlüsseln erhält dann das Wechselgeld. Zweitens können Nutzer von HD
@@ -55,21 +55,21 @@ für diese zu erstellen.
 Die Blockchain ist ein global vereinbartes Register aller jemals durchgeführten Transaktionen und wird ständig als eine einzige 
 verknüpfte Liste erweitert. Jede Transaktion in der Blockchain, zum Beispiel Alice, die Bob 10 Bitcoins zahlt, hat einen oder
 mehrere Transaktionausgänge (TXO), die als Summen aus verwendbarer Bitcoins dienen. Hierbei muss beachtet werden, dass Bitcoin
-Summen nicht in kleinere Summen aufgeteilt werden können, d.h., dass es im Normalfall einen Überschuss an Bitcoins gibt, der an 
+Summen nicht in kleinere Summen aufgeteilt werden können, d. h., dass es im Normalfall einen Überschuss an Bitcoins gibt, der an 
 den Sender zurückgezahlt wird, ähnlich wie beim Wechselgeld im Falle normaler Währung. Sobald Bob die TXO beziehungsweise 
 die Summen seiner verwendbaren Bitcoins erhält, bezeichnet man sie als unausgegebene Transaktionausgänge (UTXO). Sie bleiben
 UTXOs, bis der Besitzer (in diesem Beispiel Bob) sie einlöst, um jemand anderen zu bezahlen (in diesem Fall werden sie wieder
-als ausgegebene TXOs bezeichnet). \skpcf[1]{pinto} Vor jeder Transaktion befindet sich eine vier-byte lange
+als ausgegebene TXOs bezeichnet). \skpcf[1]{pinto} Vor jeder Transaktion befindet sich eine 4-byte lange
 Transaktionsversionnummer, welche anderen Peers und Minern sagt, mit welchen Regeln diese Transaktion bestätigt werden soll.
 UTXOs haben eine Indexnummer basierend auf ihrer Lage in der Transaktion. Wenn ein beliebiger Bitcoin (oder nur ein Anteil)
-zum ersten mal versendet wird, nachdem dieser gemined wurde, hat die zugehörige Transaktion eine Indexnummer von 0. Im Gegensatz
-zu Ausgaben (UTXOs), haben Eingaben (TXOs) eine Ausgabenindexnummer, um den UTXO zu spezifisieren, der ausgegeben werden soll.
+zum ersten Mal versendet wird, nachdem dieser gemined wurde, hat die zugehörige Transaktion eine Indexnummer von 0. Im Gegensatz
+zu Ausgaben (UTXOs) haben Eingaben (TXOs) eine Ausgabenindexnummer, um den UTXO zu spezifisieren, der ausgegeben werden soll.
 Zudem hat es einen Skript mit bestimmten Parametern, welcher erfüllt werden muss, um die Bitcoins ausgeben zu können.
 
 Meist enthält eine Transaktion auch eine Transaktionsgebühr, welche an Miner als Ausgleich zur Versicherung des Bitcoin-Netzwerkes
 ausgezahlt wird. Zudem schützen Transaktionsgebühren auch vor Hackerangriffen, indem sie es finanziell unmöglich machen, das 
 Bitcoin-Netzwerk mit Transaktionen zu überschütten. Zudem können Miner entscheiden, welche Transaktion sie in ihrem Block
-inkludieren möchten, d.h. eine Transaktion mit einer höheren Transaktionsgebühr wird eher inkludiert, als eine Transaktion mit
+inkludieren möchten, d.h. eine Transaktion mit einer höheren Transaktionsgebühr wird eher inkludiert als eine Transaktion mit
 niedrigen Transaktionsgebühren. Berechnet werden Transaktionsgebühren anhand der Größe einer Transaktion in Kilobyte und nicht 
 anhand der Menge von Bitcoins, die versendet werden. Im Laufe der Zeit änderte sich die Berechnung von Transaktionsgebühren
 und die Bedeutung von Transaktionsgebühren bei der Prozessierungspriorität. Zuerst hatten Transaktionsgebühren einen festen 
@@ -81,9 +81,9 @@ Transaktionsgebühren sind dadurch Geschichte gewesen. \skpcf[127]{anto}
 \subsection{Transaktionenskripts}
 Bitcoin nutzt eine eigene Stapel-basierte Skriptsprache mit einer Reihe von Opcodes. Diese Skriptsprache, welche auch ganz 
 einfach ''Script'' genannt wird, wird genutzt, um festzustellen, ob ein unausgegebener Transaktionsausgang (UTXO) ausgegeben 
-werden kann, oder nicht. Wenn Bitcoin versendet wird,
+werden kann oder nicht. Wenn Bitcoin versendet wird,
 dann wird lediglich ein Bitcoinwert zu einem Skript zugewiesen, welcher nur ausgegeben kann, wenn der Skript erfolgreich
-ausgeführt wird und ein einziger ''true'' Wert auf dem Stapel entsteht. Den Skript, welcher dem UTXO zugewiesen ist, nennt man
+ausgeführt wird und ein einziger ''true'' Wert auf dem Stapel entsteht. Der Skript, welcher dem UTXO zugewiesen ist, nennt man
 ''scriptPubKey''. Um die Bedingungen des Skriptes zu erfüllen, muss man eine korrekte ''scriptSig'' zur Verfügung stellen,
 welche auch ein Skript ist und ausgeführt wird, um zu testen, ob der Versand von Bitcoin funktioniert hat. \skpcf[1ff]{jordan} 
 Skript ist eine sehr einfach Sprache, welche dazu gemacht wurde, nicht viele Möglichkeiten zu bieten und auf fast jedem
@@ -92,7 +92,7 @@ viele der schicken Dinge tun, die moderne Programmiersprachen können. Zweck ist
 bietet, sich einfach überprüfen lässt und sehr robust gegen Bugs o.Ä. ist, was sie zu einem perfekten Kandidaten für die 
 Versendung von Währung in Bezug auf Sicherheit macht.
 
-Bitcoins Skriptsprache wird Stapel-basiert genannt, weil sie eine Datenstruktur names ''Stapel'' nutzt. Ein Stapel ist ein sehr
+Bitcoins Skriptsprache wird Stapel-basiert genannt, weil sie eine Datenstruktur namens ''Stapel'' nutzt. Ein Stapel ist ein sehr
 einfaches Datenkonstrukt, welches man sich wie einen Stapel von Karten vorstellen kann. Ein Stapel hat zwei mögliche Operationen:
 Push (drauflegen) und Pop (herunternehmen). Push legt ein Objekt an die Spitze des Stapels. Pop entfernt ein Objekt von der
 Spitze des Stapels. Operationen auf einem Stapel können nur mit dem obersten Objekt des Stapels interagieren. Deshalb nennt man
@@ -101,7 +101,7 @@ nach rechts ausliest. Dabei werden Zahlen (Datenkonstanten) auf den Stapel hinau
 einmal von dem Stapel herunternehmen und drauflegen, mit diesen interagieren und möglicherweise ein daraus resultierendes Objekt
 zurück auf den Stapel legen. Beispielsweise kann OP\_ADD zwei Objekte von dem Stapel herunternehmen, diese addieren, und das
 resultierende Ergebnis wieder auf den Stapel legen.
-Bedingte Operatoren prüfen eine Bedingung und geben boolean Wert von TRUE oder FALSE zurück. Beispielsweise kann OP\_EQUAL zwei
+Bedingte Operatoren prüfen eine Bedingung und geben Boolean Wert von TRUE oder FALSE zurück. Beispielsweise kann OP\_EQUAL zwei
 Objekte vom Stapel herunternehmen und legt TRUE (wird in Script als 1 dargestellt) zurück hinauf, wenn die Elemente denselben
 Wert haben und FALSE (wird in Script als 0 dargestellt), wenn die Elemente nicht denselben Wert haben. Im Normalfall haben
 Bitcoin-Transaktions-Skripts einen bedingten Operator, um die Gültigkeit der Transaktion als gültig beziehungsweise TRUE oder
@@ -109,12 +109,12 @@ ungültig beziehungsweise FALSE zu bestimmen. \skpcf[133]{anto}
 
 Im ursprünglichen Bitcoin Client (heute Bitcoin Core) waren der ''scriptPubKey'' beziehungsweise der Ausgabeskript und der 
 ''scriptSig'' beziehungsweise der Eingabeskript miteinander verkettet und in einer Sequenz ausgeführt worden. Aus 
-Sicherheitsgründen wurde dies 2010 geänder, da es eine Verwundbarkeit gab, wodurch missgebildete Ausgabeskripts in der 
+Sicherheitsgründen wurde dies 2010 geändert, da es eine Verwundbarkeit gab, wodurch missgebildete Ausgabeskripts in der 
 Lage waren, Daten auf den Stapel des Eingabeskripts zu legen und diesen dadurch zu korrumpieren. Heutzutage werden die Skripte
-deswegen seperat ausgeführt und die Stapel werden zwischen den Ausführungen transferiert, wie folgend beschrieben: Zuerst wird
-der Ausgabeskript mit dem Script Engine ausgeführt. Falls der Ausgabeskript ohne Fehler (d.h. keine verbleibenden Operatorn)
+deswegen separat ausgeführt und die Stapel werden zwischen den Ausführungen transferiert, wie folgend beschrieben: Zuerst wird
+der Ausgabeskript mit dem Script Engine ausgeführt. Falls der Ausgabeskript ohne Fehler (d. h. keine verbleibenden Operatorn)
 ausgeführt wird, wird der Hauptstapel kopiert und der Eingabeskript wird ausgeführt. Wenn das Ergebnis der Ausführung des 
-Eingabeskriptes mit den Stapeldaten des kopierten Ausgabeskriptes übereinstimmt (d.h. das Ergebnis ist TRUE oder 1), hat der 
+Eingabeskriptes mit den Stapeldaten des kopierten Ausgabeskriptes übereinstimmt (d. h. das Ergebnis ist TRUE oder 1), hat der 
 Ausgabeskript es geschafft, die Bedingungen des Eingabeskriptes zu erfüllen und ist daher erlaubt, die enthaltenen UTXOs
 auszugeben. Resultiert irgendein anderes Ergebnis außer TRUE beziehungsweise 1, nachdem der kombinierte Skript ausgeführt wurde,
 ist die Eingabe ungültig, weil er es nicht geschafft hat, die Bedingungen zu erfüllen, welche auf dem UTXO gesetzt sind.

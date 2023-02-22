@@ -13,7 +13,7 @@ einem kurzen Update den neuen Standard, da dieser lediglich für das Interesse d
 
 Bitcoin Nodes sind nicht leistungshungrig und benötigen wenig Energie, solange sie nicht für Mining genutzt werden. Deswegen ist
 es für so gut wie jede Person möglich,
-selber zu Hause eine Bitcoin Node zum Laufen zu bringen. Die Zwecke für diese Node könnnen aber von Person zu Person variieren.
+selber zu Hause eine Bitcoin Node zum Laufen zu bringen. Die Zwecke für diese Node können aber von Person zu Person variieren.
 Zum einen gibt es Leute, die mit ihrer Node nur mithören wollen, zum anderen aber auch diejenigen, die durch Mining Geld
 verdienen wollen. Aus diesem Grunde gibt es verschiedene Implementierungen und Rollen von Nodes.
 
@@ -22,10 +22,10 @@ Eine Full Node benötigt von allen Nodetypen am meisten Speicherplatz, ist dafü
 einer Node zusammen. Der distinkte Unterschied von der Full Node ist, dass diese die komplette Blockchain herunterlädt und
 verifiziert. Der benötigte Speicherplatz der Blockchain liegt bei 423GB (Stand: 25/8/2022).
 
-Damit die Blockchain erweitert wird und alle Transaktionen verfiziert werden könnnen, müssen sogenannte Mining Nodes alle 10 Minuten
+Damit die Blockchain erweitert wird und alle Transaktionen verifiziert werden können, müssen sogenannte Mining Nodes alle 10 Minuten
 eine Lösung zu einem mathematischen Problem finden, indem sie mit der Hashfunktion SHA256 einen bestimmten Wert suchen. Das muss
 vor allem schnell und präzise geschehen, damit die Chance, die Lösung als Erstes zu finden, maximiert wird. Mining Nodes 
-profitieren vor allem von modernen GPUs, welche hunderte Millionen Hashes pro Sekunde berechnen.
+profitieren vor allem von modernen GPUs, welche Hunderte Millionen Hashes pro Sekunde berechnen.
 
 Die wahrscheinlich beste Node fÍür den Otto Normalverbraucher ist der SPV Client (Simplified Payment Verification Client). Dieser
 installiert lediglich eine Wallet, eine Kopie der Block Header und stellt eine Verbindung zum Bitcoin-Netzwerk her. Er ist einzig
@@ -40,7 +40,7 @@ welche Transaktionen er in seinem Block inkludieren möchte. Bei einer Transakti
 abgeben. Transaktionen mit einer hohen Spende haben eine größere Wahrscheinlichkeit, im nächsten Block inkludiert zu werden.
 
 Nun kann es jedoch passieren, dass zwei Miner gleichzeitig eine Lösung finden und im Bitcoin-Netzwerk zwei verschiedene Versionen
-der Blockchain im Umlauf sind. Diese Diskrepanz wird aufgelöst, sobal einer der Ketten einen nächsten Block bekommt. Der Grund
+der Blockchain im Umlauf sind. Diese Diskrepanz wird aufgelöst, sobald einer der Ketten einen nächsten Block bekommt. Der Grund
 dafür ist, dass das Bitcoin-Netzwerk nach einem Konzept namens "Proof of work" arbeitet. Wenn ein neuer Block hinzugefügt wird,
 kann man sich sicher sein, dass ein Miner Prozesskraft und Energie dafür aufopfern musste. Die Kette, welche im Endeffekt mehr
 Blöcke besitzt, wird als gültig anerkannt.
@@ -49,7 +49,7 @@ Einer der bekanntesten Wege, um das Bitcoin-Netzwerk anzugreifen, ist der "51\% 
 in Besitz von mehr als 50\% der Mining-Kraft kommt, kann man zwei schwerwiegende Dinge tun. Zum einen kann das Bitcoin-Netzwerk
 komplett lahmgelegt werden, indem keine neuen Transaktionen in den Blöcken inkludiert werden. Zum anderen können Zahlungen
 rückgängig gemacht werden, indem man in der einen Kette die Zahlung akzeptiert hat, dann jedoch eine andere Kette ohne diese 
-Zahlung weiterführt und verlängert. Ein Angriff dieser Art wird jedoch immer unwahrsheinlicher, da die Warscheinlichkeit für
+Zahlung weiterführt und verlängert. Ein Angriff dieser Art wird jedoch immer unwahrscheinlicher, da die Warscheinlichkeit für
 einen solchen Angriff exponentiell abfällt. \skpcf[8]{anto}
 
 \subsubsection{Struktur eines Blocks}
@@ -61,13 +61,13 @@ einen Zeitstempel, welcher die Entstehung des Blocks angibt und einer Zusatzzahl
 Zur Identifizierung von Blöcken gibt es zwei Wege: Die Berechnung des Block Header Hashes und die Höhe des Blocks. Einen Block 
 durch seine Höhe zu identifizieren scheint simpler, jedoch gibt es hierbei ein Problem. Bei dem vorher angesprochenen Fall,
 dass zwei Miner gleichzeitig einen Block finden, scheitert die Identifizierung eines Blocks durch dessen Höhe. Um den Block
-Header Hash zu berechnen, wird der Block Header (Schwierigkeit, Zeitstempel, Zusatzzahl) zwei mal mit dem SHA256 Algorithmus 
+Header Hash zu berechnen, wird der Block Header (Schwierigkeit, Zeitstempel, Zusatzzahl) zwei Mal mit dem SHA256 Algorithmus 
 gehashed. Hierbei kommt ein 32-byte Hash heraus, welcher mit vielen Nullstellen beginnt. Jeder Block hat einen distinkten Block
-Header Hash, wodurch es keine doppelte Blöcke geben kann. Der erste Block (Genesis-Block) der Blockchain hat einen Hashwert von
+Header Hash, wodurch es keine doppelten Blöcke geben kann. Der erste Block (Genesis-Block) der Blockchain hat einen Hashwert von
 000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f. \skpcf[199]{anto}
 
 \subsubsection{Genesis-Block}
 Der Genesis-Block ist der erste Block der Blockchain mit einer Höhe von 0. Anders als die darauffolgenden Blöcke gilt dieser als
-unveränderbar. Kreiert wurde dieser 2009 und wenn man jeden einzelnen Block auf der Blockchain zurückverfolgt, gelangt man
+unveränderbar. Kreiert wurde dieser 2009, und wenn man jeden einzelnen Block auf der Blockchain zurückverfolgt, gelangt man
 schlussendlich an den Genesis-Block. Standardmäßig fügt jede Implementierung von Bitcoin den Genesis-Block schon bei der 
 Installation hinzu.
